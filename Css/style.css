@@ -441,7 +441,7 @@ header {
 
 /* BRANDS BAR */
 .brands-bar {
-    background: #fff;
+    background: var(--pk-soft);
     padding: 28px 0;
     border-bottom: 1px solid #e2e8f0;
 }
@@ -463,14 +463,29 @@ header {
     gap: 12px;
 }
 
-.brand-chip {
-    background: #f1f5f9;
+.brands-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 0 20px;
+    justify-content: center;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.brands-slider::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+.brand-logo {
+    flex-shrink: 0;
+    width: 156px;
+    height: 78px;
+    object-fit: contain;
+    background: #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
     border: 1px solid #e2e8f0;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 12px;
-    font-weight: 600;
-    color: #475569;
 }
 
 /* SECTIONS */

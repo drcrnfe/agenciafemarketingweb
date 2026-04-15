@@ -65,11 +65,11 @@ header {
 .fe-nav .inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 0 28px;
+    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 68px;
 }
 
 .brand {
@@ -80,8 +80,8 @@ header {
 }
 
 .brand img {
-    width: 51px;
-    height: 51px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     border: 2.5px solid var(--pk);
     object-fit: cover;
@@ -107,7 +107,7 @@ header {
 
 .brand-name {
     font-weight: 800;
-    font-size: 17px;
+    font-size: 16px;
     color: var(--tl);
     letter-spacing: 0.5px;
 }
@@ -126,7 +126,7 @@ header {
     color: #475569;
     font-size: 14px;
     font-weight: 600;
-    margin-left: 32px;
+    margin-left: 28px;
     transition: 0.2s ease;
     position: relative;
 }
@@ -202,7 +202,7 @@ header {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding-top: 72px;
+    padding-top: 80px;
     position: relative;
     overflow: hidden;
 }
@@ -235,10 +235,10 @@ header {
 .hero-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: 80px 28px;
+    padding: 100px 40px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 80px;
     align-items: center;
     position: relative;
     z-index: 1;
@@ -255,7 +255,7 @@ header {
     text-transform: uppercase;
     padding: 6px 18px;
     border-radius: 50px;
-    margin-bottom: 22px;
+    margin-bottom: 28px;
 }
 
 .hero-title {
@@ -263,7 +263,7 @@ header {
     font-weight: 900;
     color: #fff;
     line-height: 1.1;
-    margin-bottom: 18px;
+    margin-bottom: 24px;
 }
 
 .hero-title .script {
@@ -281,13 +281,12 @@ header {
     font-size: 16px;
     font-weight: 300;
     line-height: 1.8;
-    margin-bottom: 36px;
-    max-width: 520px;
+    margin-bottom: 40px;
 }
 
 .hero-btns {
     display: flex;
-    gap: 14px;
+    gap: 16px;
     flex-wrap: wrap;
 }
 
@@ -333,7 +332,7 @@ header {
 .hero-stats {
     display: flex;
     gap: 36px;
-    margin-top: 44px;
+    margin-top: 50px;
 }
 
 .stat-n {
@@ -371,7 +370,7 @@ header {
     backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 20px;
-    padding: 28px;
+    padding: 32px;
     position: relative;
     z-index: 1;
 }
@@ -442,7 +441,7 @@ header {
 /* BRANDS BAR */
 .brands-bar {
     background: var(--pk-soft);
-    padding: 28px 0;
+    padding: 24px 0;
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -453,19 +452,19 @@ header {
     color: #94a3b8;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 }
 
 .brands-chips {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .brands-slider {
     display: flex;
-    gap: 20px;
+    gap: 16px;
     overflow-x: auto;
     padding: 0 20px;
     justify-content: center;
@@ -479,8 +478,8 @@ header {
 
 .brand-logo {
     flex-shrink: 0;
-    width: 156px;
-    height: 78px;
+    width: 140px;
+    height: 70px;
     object-fit: contain;
     background: #e2e8f0;
     border-radius: 8px;
@@ -495,7 +494,7 @@ header {
 #testimonios,
 #cotizar,
 #contacto {
-    padding: 100px 28px;
+    padding: 80px 24px;
 }
 
 #about,
@@ -690,14 +689,14 @@ header {
 .svc-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-    gap: 18px;
-    margin-top: 48px;
+    gap: 16px;
+    margin-top: 44px;
 }
 
 .svc-card {
     background: #fff;
     border-radius: 18px;
-    padding: 28px;
+    padding: 24px;
     border: 1px solid #f1f5f9;
     transition: 0.3s ease;
     position: relative;
@@ -725,14 +724,14 @@ header {
 }
 
 .svc-icon {
-    width: 52px;
-    height: 52px;
+    width: 48px;
+    height: 48px;
     border-radius: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 16px;
-    font-size: 22px;
+    margin-bottom: 14px;
+    font-size: 20px;
     transition: 0.3s ease;
 }
 
@@ -753,14 +752,14 @@ header {
 }
 
 .svc-card h4 {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: #1e293b;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 }
 
 .svc-card p {
-    font-size: 13px;
+    font-size: 12px;
     color: var(--gy);
     line-height: 1.7;
 }
@@ -808,6 +807,7 @@ header {
     margin: 30px 0 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.12);
     padding-bottom: 0;
+    justify-content: center;
 }
 
 .tab-btn {
@@ -845,8 +845,9 @@ header {
 .port-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 14px;
-    margin-top: 24px;
+    gap: 12px;
+    margin-top: 20px;
+    justify-items: center;
 }
 
 .pc {
@@ -865,7 +866,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 18px;
+    padding: 16px;
     position: relative;
 }
 
@@ -883,14 +884,14 @@ header {
 
 .pc-label {
     color: #fff;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 700;
     line-height: 1.4;
 }
 
 .pc-brand {
     color: rgba(255, 255, 255, 0.55);
-    font-size: 10px;
+    font-size: 9px;
     margin-top: 3px;
 }
 
@@ -1379,7 +1380,7 @@ textarea.form-control-custom {
 /* FOOTER */
 footer {
     background: var(--tl);
-    padding: 56px 28px 24px;
+    padding: 48px 24px 20px;
     color: rgba(255, 255, 255, 0.75);
 }
 
@@ -1391,8 +1392,8 @@ footer {
 .footer-grid {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 32px;
+    margin-bottom: 36px;
 }
 
 .footer-brand .fb-circle {
@@ -1424,7 +1425,7 @@ footer {
 .footer-brand .fb-name {
     color: #fff;
     font-weight: 800;
-    font-size: 16px;
+    font-size: 15px;
 }
 
 .footer-brand .brand-row {
@@ -1434,16 +1435,16 @@ footer {
 }
 
 .footer-brand p {
-    font-size: 13px;
+    font-size: 12px;
     line-height: 1.75;
     color: rgba(255, 255, 255, 0.6);
 }
 
 .ft-title {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--pk);
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 
 .ft-links {
@@ -1456,7 +1457,7 @@ footer {
 }
 
 .ft-links a {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.65);
     transition: 0.2s ease;
 }
@@ -1469,7 +1470,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(255, 255, 255, 0.65);
     margin-bottom: 8px;
 }
@@ -1482,7 +1483,7 @@ footer {
 
 .footer-divider {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: 24px;
+    padding-top: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1491,7 +1492,7 @@ footer {
 }
 
 .footer-copy {
-    font-size: 12px;
+    font-size: 11px;
     color: rgba(255, 255, 255, 0.45);
 }
 

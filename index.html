@@ -18,29 +18,26 @@
 <body>
 
     <!-- NAV -->
-    <nav class="fe-nav" id="mainNav">
-        <div class="inner">
-            <div class="brand" onclick="goTo('hero')">
+    <nav class="navbar navbar-expand-lg fe-nav" id="mainNav">
+        <div class="container">
+            <div class="navbar-brand brand" onclick="goTo('hero')">
                 <img src="Assets/imagenes/Mesa de trabajo 2@0.75x.png" alt="">
                 <div class="brand-name">AGENCIA <em>FE</em></div>
             </div>
-            <div class="nav-links">
-                <a href="#about">Nosotros</a>
-                <a href="#services">Servicios</a>
-                <a href="#portfolio">Portafolio</a>
-                <a href="#testimonios">Testimonios</a>
-                <a href="#cotizar">Cotizar</a>
-                <a href="#contacto" class="nav-cta">Contacto</a>
+            <button class="navbar-toggler hamburger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portafolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cotizar">Cotizar</a></li>
+                    <li class="nav-item"><a class="nav-link nav-cta" href="#contacto">Contacto</a></li>
+                </ul>
             </div>
-            <button class="hamburger" onclick="toggleMob()">☰</button>
-        </div>
-        <div class="mob-menu" id="mobMenu">
-            <a href="#about" onclick="closeMob()">Nosotros</a>
-            <a href="#services" onclick="closeMob()">Servicios</a>
-            <a href="#portfolio" onclick="closeMob()">Portafolio</a>
-            <a href="#testimonios" onclick="closeMob()">Testimonios</a>
-            <a href="#cotizar" onclick="closeMob()">Cotizar</a>
-            <a href="#contacto" onclick="closeMob()">Contacto</a>
         </div>
     </nav>
 
@@ -48,54 +45,59 @@
     <section id="hero">
         <div class="hero-blob1"></div>
         <div class="hero-blob2"></div>
-        <div class="hero-inner">
-            <div>
-                <div class="hero-badge">Marketing Digital &amp; Comunicaciones</div>
-                <h1 class="hero-title">
-                    Elevamos tu marca con
-                    <span class="script">Estrategia</span>
-                    y Pasión
-                </h1>
-                <p class="hero-desc">Transformamos ideas en resultados digitales. Combinamos creatividad y datos para
-                    conectar tu negocio con su audiencia ideal, con más de 15 años de experiencia.</p>
-                <div class="hero-btns">
-                    <button class="btn-pk" onclick="goTo('cotizar')"><i class="fas fa-paper-plane"></i> Solicitar
-                        Cotización</button>
-                    <button class="btn-outline" onclick="goTo('services')"><i class="fas fa-th-large"></i> Ver
-                        Servicios</button>
-                </div>
-                <div class="hero-stats">
-                    <div>
-                        <div class="stat-n">15+</div>
-                        <div class="stat-l">Años de Exp.</div>
+        <div class="container hero-inner">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="hero-badge">Marketing Digital &amp; Comunicaciones</div>
+                    <h1 class="hero-title">
+                        Elevamos tu marca con
+                        <span class="script">Estrategia</span>
+                        y Pasión
+                    </h1>
+                    <p class="hero-desc">Transformamos ideas en resultados digitales. Combinamos creatividad y datos
+                        para
+                        conectar tu negocio con su audiencia ideal, con más de 15 años de experiencia.</p>
+                    <div class="hero-btns">
+                        <button class="btn-pk" onclick="goTo('cotizar')"><i class="fas fa-paper-plane"></i> Solicitar
+                            Cotización</button>
+                        <button class="btn-outline" onclick="goTo('services')"><i class="fas fa-th-large"></i> Ver
+                            Servicios</button>
                     </div>
-                    <div>
-                        <div class="stat-n">100+</div>
-                        <div class="stat-l">Clientes</div>
-                    </div>
-                    <div>
-                        <div class="stat-n">12</div>
-                        <div class="stat-l">Servicios</div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-img-wrap">
-                <div class="hero-card-float">
-                    <div class="hcf-top">
-                        <div class="hcf-av">FE</div>
+                    <div class="hero-stats">
                         <div>
-                            <div class="hcf-name">Dashboard Marketing</div>
-                            <div class="hcf-sub">Este mes · Resultados en vivo</div>
+                            <div class="stat-n">15+</div>
+                            <div class="stat-l">Años de Exp.</div>
+                        </div>
+                        <div>
+                            <div class="stat-n">100+</div>
+                            <div class="stat-l">Clientes</div>
+                        </div>
+                        <div>
+                            <div class="stat-n">12</div>
+                            <div class="stat-l">Servicios</div>
                         </div>
                     </div>
-                    <div class="metric"><span class="metric-label"><i class="fab fa-instagram"></i> Engagement
-                            RRSS</span><span class="metric-val v-green">↑ 42%</span></div>
-                    <div class="metric"><span class="metric-label"><i class="fas fa-bullseye"></i> Meta ADS
-                            ROAS</span><span class="metric-val v-pink">3.8x</span></div>
-                    <div class="metric"><span class="metric-label"><i class="fab fa-google"></i> Posición
-                            Google</span><span class="metric-val v-teal">#1 SEO</span></div>
-                    <div class="metric"><span class="metric-label"><i class="fas fa-robot"></i> N8N
-                            Automatiz.</span><span class="metric-val v-green">✓ Activo</span></div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="hero-img-wrap">
+                        <div class="hero-card-float">
+                            <div class="hcf-top">
+                                <div class="hcf-av">FE</div>
+                                <div>
+                                    <div class="hcf-name">Dashboard Marketing</div>
+                                    <div class="hcf-sub">Este mes · Resultados en vivo</div>
+                                </div>
+                            </div>
+                            <div class="metric"><span class="metric-label"><i class="fab fa-instagram"></i> Engagement
+                                    RRSS</span><span class="metric-val v-green">↑ 42%</span></div>
+                            <div class="metric"><span class="metric-label"><i class="fas fa-bullseye"></i> Meta ADS
+                                    ROAS</span><span class="metric-val v-pink">3.8x</span></div>
+                            <div class="metric"><span class="metric-label"><i class="fab fa-google"></i> Posición
+                                    Google</span><span class="metric-val v-teal">#1 SEO</span></div>
+                            <div class="metric"><span class="metric-label"><i class="fas fa-robot"></i> N8N
+                                    Automatiz.</span><span class="metric-val v-green">✓ Activo</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -106,12 +108,14 @@
         <div class="brands-label">Empresas que confían en nosotros</div>
         <div class="brands-slider">
             <img src="Assets/imagenes/confiaron en notros/1 LOGO COLOR_PNG.png" alt="Cliente 1" class="brand-logo">
-            <img src="Assets/imagenes/confiaron en notros/FONDO TRANSPARENTE negro.png" alt="Cliente 2" class="brand-logo">
+            <img src="Assets/imagenes/confiaron en notros/FONDO TRANSPARENTE negro.png" alt="Cliente 2"
+                class="brand-logo">
             <img src="Assets/imagenes/confiaron en notros/logo cover ig.png" alt="Cliente 3" class="brand-logo">
             <img src="Assets/imagenes/confiaron en notros/LOGO PNG.png" alt="Cliente 4" class="brand-logo">
             <img src="Assets/imagenes/confiaron en notros/Logo transparente.png" alt="Cliente 5" class="brand-logo">
             <img src="Assets/imagenes/confiaron en notros/Recurso 1xxxhdpi.png" alt="Cliente 6" class="brand-logo">
-            <img src="Assets/imagenes/confiaron en notros/solo digital_logo original letras blancas_fondo transparente.png" alt="Cliente 7" class="brand-logo">
+            <img src="Assets/imagenes/confiaron en notros/solo digital_logo original letras blancas_fondo transparente.png"
+                alt="Cliente 7" class="brand-logo">
         </div>
     </div>
 
@@ -157,19 +161,19 @@
         <div class="services-inner">
             <div class="section-label">Nuestros Servicios</div>
             <h2 class="section-heading">Soluciones <span style="color:var(--pk)">Integrales</span></h2>
-            <div class="svc-grid">
-                <div class="svc-card">
+            <div class="row svc-grid">
+                <div class="col-md-6 col-lg-4 svc-card">
                     <div class="svc-icon si-pk"><i class="fab fa-instagram"></i></div>
                     <h4>SMO – Social Media Optimization</h4>
                     <p>Gestión de perfiles en Instagram, Facebook y LinkedIn para maximizar alcance orgánico.</p>
                 </div>
-                <div class="svc-card">
+                <div class="col-md-6 col-lg-4 svc-card">
                     <div class="svc-icon si-tl"><i class="fas fa-ad"></i></div>
                     <h4>SMM – Campañas ADS</h4>
                     <p>Campañas pagadas de alto rendimiento en Google Ads y Meta Ads con seguimiento continuo.</p><span
                         class="svc-tag teal">Google & Meta</span>
                 </div>
-                <div class="svc-card">
+                <div class="col-md-6 col-lg-4 svc-card">
                     <div class="svc-icon si-pk"><i class="fas fa-photo-video"></i></div>
                     <h4>Contenido Orgánico RRSS</h4>
                     <p>Diseño y edición con Adobe Suite en formato texto, imagen y video para redes sociales.</p>
@@ -215,7 +219,7 @@
                     <p>Consultoría personalizada para potenciar la comunicación interna y externa de tu organización.
                     </p>
                 </div>
-                <div class="svc-card featured">
+                <div class="col-md-6 col-lg-4 svc-card featured">
                     <div class="svc-icon si-tl"><i class="fas fa-robot"></i></div>
                     <h4>Automatizaciones N8N</h4>
                     <p>Automatiza flujos de trabajo: CRM, WhatsApp, reportes, email marketing e integraciones.</p><span
@@ -227,21 +231,43 @@
 
     <!-- PORTFOLIO -->
     <section id="portfolio">
-        <div style="max-width:1280px;margin:0 auto">
+        <div style="max-width:1280px;margin:0 auto;text-align:center">
             <div class="section-label">Nuestro Trabajo</div>
             <h2 class="section-heading">Resultados que <span class="script"
                     style="font-size:clamp(38px,5vw,56px)">hablan</span></h2>
-            <div class="tabs-row">
-                <button class="tab-btn active" onclick="switchTab('stories',this)">Stories</button>
-                <button class="tab-btn" onclick="switchTab('feed',this)">Feed Posts</button>
-                <button class="tab-btn" onclick="switchTab('reels',this)">Reels</button>
-                <button class="tab-btn" onclick="switchTab('ads',this)">ADS</button>
-                <button class="tab-btn" onclick="switchTab('seo',this)">SEO & Web</button>
-                <button class="tab-btn" onclick="switchTab('media',this)">Gestión Medios</button>
-                <button class="tab-btn" onclick="switchTab('n8n',this)">N8N</button>
-            </div>
+            <ul class="nav nav-tabs tabs-row" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active tab-btn" id="stories-tab" data-bs-toggle="tab"
+                        data-bs-target="#tp-stories" type="button" role="tab" aria-controls="tp-stories"
+                        aria-selected="true">Stories</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tab-btn" id="feed-tab" data-bs-toggle="tab" data-bs-target="#tp-feed"
+                        type="button" role="tab" aria-controls="tp-feed" aria-selected="false">Feed Posts</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tab-btn" id="reels-tab" data-bs-toggle="tab" data-bs-target="#tp-reels"
+                        type="button" role="tab" aria-controls="tp-reels" aria-selected="false">Reels</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tab-btn" id="ads-tab" data-bs-toggle="tab" data-bs-target="#tp-ads"
+                        type="button" role="tab" aria-controls="tp-ads" aria-selected="false">ADS</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tab-btn" id="seo-tab" data-bs-toggle="tab" data-bs-target="#tp-seo"
+                        type="button" role="tab" aria-controls="tp-seo" aria-selected="false">SEO & Web</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tab-btn" id="media-tab" data-bs-toggle="tab" data-bs-target="#tp-media"
+                        type="button" role="tab" aria-controls="tp-media" aria-selected="false">Gestión Medios</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link tab-btn" id="n8n-tab" data-bs-toggle="tab" data-bs-target="#tp-n8n"
+                        type="button" role="tab" aria-controls="tp-n8n" aria-selected="false">N8N</button>
+                </li>
+            </ul>
             <!-- Stories -->
-            <div id="tp-stories" class="tab-pane active">
+            <div id="tp-stories" class="tab-pane fade show active" role="tabpanel" aria-labelledby="stories-tab">
                 <div class="port-grid">
                     <div class="pc">
                         <div class="pc-inner" style="background:linear-gradient(160deg,#1a0a2e,#8B1A4A)">
@@ -276,7 +302,7 @@
                 </div>
             </div>
             <!-- Feed -->
-            <div id="tp-feed" class="tab-pane">
+            <div id="tp-feed" class="tab-pane fade" role="tabpanel" aria-labelledby="feed-tab">
                 <div class="port-grid">
                     <div class="pc">
                         <div class="pc-inner" style="background:linear-gradient(135deg,#1B4D3E,#345E5E)">
@@ -306,7 +332,7 @@
                 </div>
             </div>
             <!-- Reels -->
-            <div id="tp-reels" class="tab-pane">
+            <div id="tp-reels" class="tab-pane fade" role="tabpanel" aria-labelledby="reels-tab">
                 <div class="port-grid">
                     <div class="pc">
                         <div class="pc-inner" style="background:linear-gradient(160deg,#0a0a2e,#2A4B4B)">
@@ -335,7 +361,7 @@
                 </div>
             </div>
             <!-- ADS -->
-            <div id="tp-ads" class="tab-pane">
+            <div id="tp-ads" class="tab-pane fade" role="tabpanel" aria-labelledby="ads-tab">
                 <div class="ads-pair">
                     <div class="ads-box ads-meta-bg"><i class="fab fa-meta"></i>
                         <h4>Meta ADS</h4>
@@ -358,7 +384,7 @@
                 </div>
             </div>
             <!-- SEO & Web -->
-            <div id="tp-seo" class="tab-pane">
+            <div id="tp-seo" class="tab-pane fade" role="tabpanel" aria-labelledby="seo-tab">
                 <div class="ads-pair">
                     <div class="ads-box" style="background:linear-gradient(135deg,var(--tl),var(--tl2))"><i
                             class="fas fa-search"></i>
@@ -375,7 +401,7 @@
                 </div>
             </div>
             <!-- Medios -->
-            <div id="tp-media" class="tab-pane">
+            <div id="tp-media" class="tab-pane fade" role="tabpanel" aria-labelledby="media-tab">
                 <div class="media-grid">
                     <div class="media-card"><i class="fas fa-tv"></i>
                         <div class="mc-title">Televisión Nacional</div>
@@ -396,7 +422,7 @@
                 </div>
             </div>
             <!-- N8N -->
-            <div id="tp-n8n" class="tab-pane">
+            <div id="tp-n8n" class="tab-pane fade" role="tabpanel" aria-labelledby="n8n-tab">
                 <div class="n8n-grid">
                     <div class="n8n-card"><i class="fas fa-envelope-open-text" style="color:#5eead4"></i>
                         <h4>Email Marketing Automatizado</h4>
@@ -579,8 +605,8 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-inner">
-            <div class="footer-grid">
-                <div class="footer-brand">
+            <div class="row footer-grid">
+                <div class="col-lg-3 footer-brand">
                     <div class="brand-row">
                         <img src="Assets/imagenes/Mesa de trabajo 2@0.75x.png" alt="Logo Agencia FE">
                         <span class="fb-name">AGENCIA FE</span>
@@ -588,7 +614,7 @@
                     <p>Marketing digital y comunicaciones estratégicas para marcas que buscan impacto real y crecimiento
                         medible.</p>
                 </div>
-                <div>
+                <div class="col-lg-3">
                     <div class="ft-title">Explorar</div>
                     <ul class="ft-links">
                         <li><a href="#about">Nosotros</a></li>
@@ -598,7 +624,7 @@
                         <li><a href="#cotizar">Cotizar</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="col-lg-3">
                     <div class="ft-title">Legal</div>
                     <ul class="ft-links">
                         <li><a href="#">Privacidad</a></li>
@@ -606,7 +632,7 @@
                         <li><a href="#">Cookies</a></li>
                     </ul>
                 </div>
-                <div>
+                <div class="col-lg-3">
                     <div class="ft-title">Contacto</div>
                     <div class="ft-contact-item"><i class="fas fa-envelope"></i> agenciafe.marketing@gmail.com</div>
                     <div class="ft-contact-item"><i class="fas fa-phone"></i> +56 9 9415 4510</div>
@@ -658,17 +684,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script>
         // NAV
-        function toggleMob() { document.getElementById('mobMenu').classList.toggle('open') }
-        function closeMob() { document.getElementById('mobMenu').classList.remove('open') }
         function goTo(id) { document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }) }
 
         // TABS
-        function switchTab(id, btn) {
-            document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('tp-' + id).classList.add('active');
-            btn.classList.add('active');
-        }
+        // Bootstrap handles tab switching automatically
 
         // QUOTE
         function sendQuote() {

@@ -2,8 +2,10 @@
     --pk: #F194B4;
     --pk-strong: #D45D8A;
     --pk-soft: #F7B8CE;
+    --pk2: var(--pk-soft);
     --tl: #345E5E;
     --tl-dark: #2A4B4B;
+    --tl2: var(--tl-dark);
     --dk: #0F172A;
     --lt: #F8FAFC;
     --gy: #64748B;
@@ -1795,7 +1797,7 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 768px) {
     .nav-links,
-    .nav-cta-d {
+    .nav-cta {
         display: none !important;
     }
 

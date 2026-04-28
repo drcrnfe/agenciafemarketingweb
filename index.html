@@ -8,21 +8,10 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="Css/style.css"/>
+
+<!-- Custom styles are loaded from Css/style.css -->
 <style>
-:root{
-  --pk:#F194B4;
-  --pk2:#f7b8ce;
-  --tl:#345E5E;
-  --tl2:#2A4B4B;
-  --dk:#0F172A;
-  --lt:#F8FAFC;
-  --gy:#64748b;
-  --white:#fff;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Montserrat',sans-serif;color:#1e293b;background:var(--lt);overflow-x:hidden}
-a{text-decoration:none;color:inherit}
 
 /* ── NAV ── */
 .fe-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(52,94,94,.08);transition:.3s}
@@ -275,7 +264,7 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
 
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
-  .nav-links,.nav-cta-d{display:none!important}
+  .nav-links,.nav-cta{display:none!important}
   .hamburger{display:block}
   .hero-inner{grid-template-columns:1fr;padding:56px 20px}
   .hero-card-float{display:none}

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+:root{--pk:#F194B4;--pk2:#f7b8ce;--tl:#345E5E;--tl2:#2A4B4B;--lt:#F8FAFC;--gy:#64748b;--rad:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Montserrat',sans-serif;background:#fff}
+body{display:flex;flex-direction:column;overflow:hidden}
+.hdr{background:linear-gradient(135deg,var(--tl),var(--tl2));padding:14px 18px;flex-shrink:0;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(241,148,180,.12)}
+.hdr-top{display:flex;align-items:center;gap:11px;position:relative;z-index:1}
+.av{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:13px;flex-shrink:0;box-shadow:0 4px 12px rgba(241,148,180,.4)}
+.hdr-info{flex:1}
+.hdr-name{color:#fff;font-weight:800;font-size:14px}
+.hdr-status{display:flex;align-items:center;gap:5px;margin-top:2px}
+.dot{width:7px;height:7px;border-radius:50%;background:#34d399;animation:pulse 2s infinite;flex-shrink:0}
+.hdr-status span{color:rgba(255,255,255,.6);font-size:10px;font-weight:600}
+.hdr-actions{display:flex;gap:6px}
+.hdr-btn{background:rgba(255,255,255,.12);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:.2s}
+.hdr-btn:hover{background:rgba(255,255,255,.22)}
+.hdr-chips{display:flex;gap:6px;margin-top:10px;position:relative;z-index:1;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:3px 10px;border-radius:20px;color:rgba(255,255,255,.75);font-size:9px;font-weight:700;display:flex;align-items:center;gap:4px}
+.chip i{color:var(--pk);font-size:9px}
+.msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--lt);scroll-behavior:smooth}
+.msgs::-webkit-scrollbar{width:3px}
+.msgs::-webkit-scrollbar-thumb{background:#e2e8f0;border-radius:4px}
+.date-sep{text-align:center;margin:4px 0}
+.date-sep span{font-size:9px;color:#94a3b8;background:#e2e8f0;padding:3px 11px;border-radius:20px;font-weight:700;letter-spacing:.5px}
+.msg{display:flex;flex-direction:column;max-width:87%;animation:slideUp .22s ease}
+.msg.bot{align-self:flex-start}
+.msg.user{align-self:flex-end}
+.msg-row{display:flex;align-items:flex-end;gap:8px}
+.msg.user .msg-row{flex-direction:row-reverse}
+.mini-av{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:8px;flex-shrink:0}
+.bbl{padding:10px 13px;font-size:12.5px;line-height:1.65;word-break:break-word}
+.msg.bot .bbl{background:#fff;color:#1e293b;border-radius:var(--rad) var(--rad) var(--rad) 4px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.msg.user .bbl{background:linear-gradient(135deg,var(--pk),var(--pk2));color:var(--tl);border-radius:var(--rad) var(--rad) 4px var(--rad);font-weight:700}
+.msg-time{font-size:9px;color:#94a3b8;margin-top:3px;padding:0 4px}
+.msg.user .msg-time{text-align:right}
+.typing-row{display:flex;align-items:flex-end;gap:8px}
+.typing-bbl{padding:11px 15px;background:#fff;border-radius:var(--rad) var(--rad) var(--rad) 4px;border:1px solid #e2e8f0;display:flex;gap:4px;align-items:center}
+.typing-bbl span{width:6px;height:6px;background:#cbd5e1;border-radius:50%;animation:bounce .8s ease-in-out infinite}
+.typing-bbl span:nth-child(2){animation-delay:.15s}
+.typing-bbl span:nth-child(3){animation-delay:.3s}
+.qr-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px;align-self:flex-start;max-width:100%}
+.qr{background:#fff;border:1.5px solid var(--pk);color:var(--tl);padding:6px 13px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;white-space:nowrap}
+.qr:hover{background:var(--pk);color:var(--tl);transform:translateY(-2px);box-shadow:0 4px 12px rgba(241,148,180,.35)}
+.lead-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:15px;align-self:flex-start;width:268px;box-shadow:0 4px 14px rgba(0,0,0,.07);animation:slideUp .3s ease;margin-top:6px}
+.lead-card h4{font-size:12px;font-weight:800;color:var(--tl);margin-bottom:11px;display:flex;align-items:center;gap:5px}
+.lead-card h4 i{color:var(--pk)}
+.lc-inp{width:100%;padding:8px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:11.5px;font-family:'Montserrat',sans-serif;margin-bottom:7px;outline:none;color:#1e293b;transition:.2s}
+.lc-inp:focus{border-color:var(--pk);box-shadow:0 0 0 3px rgba(241,148,180,.1)}
+.lc-btn{width:100%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);padding:9px;border-radius:8px;font-size:11.5px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;transition:.2s;margin-top:2px}
+.lc-btn:hover{box-shadow:0 4px 12px rgba(241,148,180,.4);transform:translateY(-1px)}
+.lc-skip{display:block;text-align:center;font-size:10px;color:#94a3b8;margin-top:7px;cursor:pointer;font-weight:700}
+.lc-skip:hover{color:var(--tl)}
+.svc-list{display:flex;flex-direction:column;gap:6px;align-self:flex-start;width:100%;animation:slideUp .3s ease;margin-top:5px}
+.svc-item{background:#fff;border:1px solid #f1f5f9;border-radius:10px;padding:9px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:.2s}
+.svc-item:hover{border-color:var(--pk);transform:translateX(3px)}
+.svc-ico{width:32px;height:32px;border-radius:8px;background:rgba(241,148,180,.1);color:var(--pk);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.svc-txt strong{display:block;font-size:11.5px;font-weight:800;color:#1e293b}
+.svc-txt span{font-size:10px;color:var(--gy)}
+.svc-arr{color:#e2e8f0;margin-left:auto;font-size:10px}
+.quote-card{background:linear-gradient(135deg,rgba(241,148,180,.07),rgba(52,94,94,.05));border:1.5px solid rgba(241,148,180,.2);border-radius:14px;padding:15px;align-self:flex-start;width:268px;animation:slideUp .3s ease;margin-top:5px}
+.quote-card h4{font-size:12px;font-weight:800;color:var(--tl);margin-bottom:7px}
+.quote-card p{font-size:11px;color:var(--gy);margin-bottom:10px;line-height:1.6}
+.quote-btn{background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);padding:9px 14px;border-radius:8px;font-size:11.5px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;width:100%;transition:.2s}
+.quote-btn:hover{box-shadow:0 4px 12px rgba(241,148,180,.4);transform:translateY(-1px)}
+.inp-area{padding:13px 15px;border-top:1px solid #f1f5f9;background:#fff;flex-shrink:0}
+.inp-row{display:flex;gap:9px;align-items:center}
+.inp-wrap{flex:1;position:relative}
+.inp-wrap input{width:100%;border:1.5px solid #e2e8f0;border-radius:50px;padding:10px 40px 10px 16px;font-size:12.5px;font-family:'Montserrat',sans-serif;color:#1e293b;outline:none;transition:.2s;background:var(--lt)}
+.inp-wrap input:focus{border-color:var(--pk);background:#fff;box-shadow:0 0 0 3px rgba(241,148,180,.1)}
+.inp-wrap .att{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;color:#cbd5e1;cursor:pointer;font-size:14px;transition:.2s}
+.inp-wrap .att:hover{color:var(--pk)}
+.send-btn{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;transition:.3s;box-shadow:0 4px 14px rgba(241,148,180,.4)}
+.send-btn:hover{transform:scale(1.12);box-shadow:0 6px 20px rgba(241,148,180,.55)}
+.inp-hint{font-size:9px;color:#94a3b8;text-align:center;margin-top:8px;font-weight:600}
+@keyframes slideUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="av">FE</div>
+    <div class="hdr-info">
+      <div class="hdr-name">Fe · Asistente FE Agencia</div>
+      <div class="hdr-status"><div class="dot"></div><span>En línea · Responde al instante</span></div>
+    </div>
+    <div class="hdr-actions">
+      <button class="hdr-btn" onclick="window.open('tel:+56994154510')"><i class="fas fa-phone"></i></button>
+      <button class="hdr-btn" onclick="window.open('mailto:agenciafe.marketing@gmail.com')"><i class="fas fa-envelope"></i></button>
+    </div>
+  </div>
+  <div class="hdr-chips">
+    <div class="chip"><i class="fas fa-robot"></i>IA Asistente</div>
+    <div class="chip"><i class="fas fa-shield-alt"></i>Privado</div>
+    <div class="chip"><i class="fas fa-bolt"></i>Respuesta inmediata</div>
+  </div>
+</div>
+<div class="msgs" id="msgs">
+  <div class="date-sep"><span>HOY</span></div>
+</div>
+<div class="inp-area">
+  <div class="inp-row">
+    <div class="inp-wrap">
+      <input id="txt" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter')sendMsg()" autocomplete="off"/>
+      <button class="att" onclick="showQM()" title="Acciones rápidas"><i class="fas fa-plus-circle"></i></button>
+    </div>
+    <button class="send-btn" onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+  <div class="inp-hint">Powered by FE Agencia IA · agenciafe.marketing@gmail.com</div>
+</div>
+<script>
+const SYS=`Eres Fe, la asistente virtual de FE Agencia Marketing Digital y Comunicaciones. Amable, profesional, cálida y orientada a la conversión. Responde siempre en español, respuestas concisas (máx 3 párrafos), usa emojis con moderación.
+
+SOBRE FE AGENCIA:
+- +15 años experiencia en TV, publicidad, marketing digital y comunicación estratégica.
+- Email: agenciafe.marketing@gmail.com | Tel: +56 9 9415 4510
+- Fundadores: Daniel Carreño (+56994154510) y Constanza Olfos (+56998021211)
+- Instagram: @agenciafe_marketing | TikTok: @agencia.fe.market | LinkedIn: Agencia Fe Marketing
+
+SERVICIOS (12):
+1. SMO – Gestión Instagram, Facebook, LinkedIn
+2. SMM – ADS Google & Meta
+3. Contenido orgánico RRSS (Adobe Suite)
+4. Diseño Gráfico
+5. Producción Audiovisual (reels, videos)
+6. SEO & Desarrollo Web
+7. Asesorías Comunicacionales
+8. Voz Off Profesional
+9. Community Management (lun-vie, horario hábil)
+10. Gestión de Influencers
+11. Estrategia Comunicacional
+12. Automatizaciones N8N (CRM, WhatsApp, email marketing, reportes)
+
+CLIENTES: RemedyCell, Granolín, Solar Energías Renovables, Josefa Isensee, Dra. Silvana Acosta, Dr. Alfonso Lozada.
+
+PRECIOS: Personalizados según proyecto. Invita a cotización gratuita sin compromiso. Si el usuario muestra interés, solicita su nombre y email de forma natural.`;
+let history=[],leadDone=false;
+const now=()=>new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+const fmt=t=>t.replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\*(.*?)\*/g,'<em>$1</em>').replace(/\n/g,'<br>');
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const $ =id=>document.getElementById(id);
+function scrollBottom(){const m=$('msgs');m.scrollTop=m.scrollHeight}
+
+function addBot(text,extras={}){
+  const c=$('msgs');const wrap=document.createElement('div');wrap.style.display='contents';
+  const d=document.createElement('div');d.className='msg bot';
+  d.innerHTML=`<div class="msg-row"><div class="mini-av">Fe</div><div class="bbl">${fmt(text)}</div></div><div class="msg-time">${now()}</div>`;
+  wrap.appendChild(d);c.appendChild(wrap);
+  if(extras.qr?.length){
+    const row=document.createElement('div');row.className='qr-row';
+    extras.qr.forEach(q=>{const b=document.createElement('button');b.className='qr';b.textContent=q;b.onclick=()=>{row.remove();sendUser(q)};row.appendChild(b)});
+    c.appendChild(row);
+  }
+  if(extras.svc)c.appendChild(buildSvcList());
+  if(extras.lead&&!leadDone)c.appendChild(buildLeadCard());
+  if(extras.quote)c.appendChild(buildQuoteCard());
+  scrollBottom();
+}
+function addUser(text){
+  const c=$('msgs');const d=document.createElement('div');d.className='msg user';
+  d.innerHTML=`<div class="msg-row"><div class="bbl">${esc(text)}</div></div><div class="msg-time">${now()}</div>`;
+  c.appendChild(d);scrollBottom();
+}
+function showTyping(){
+  const c=$('msgs');const d=document.createElement('div');d.id='typing';d.className='msg bot';
+  d.innerHTML=`<div class="typing-row"><div class="mini-av">Fe</div><div class="typing-bbl"><span></span><span></span><span></span></div></div>`;
+  c.appendChild(d);scrollBottom();return d;
+}
+const SVCS=[
+  {ico:'fab fa-instagram',n:'SMO – Gestión RRSS',s:'Instagram, Facebook, LinkedIn'},
+  {ico:'fas fa-ad',n:'SMM – Campañas ADS',s:'Google Ads & Meta Ads'},
+  {ico:'fas fa-photo-video',n:'Contenido Orgánico',s:'Diseño, imagen y video'},
+  {ico:'fas fa-robot',n:'Automatizaciones N8N',s:'CRM, WhatsApp, email flows'},
+  {ico:'fas fa-search',n:'SEO & Desarrollo Web',s:'Posicionamiento y sitios web'},
+  {ico:'fas fa-film',n:'Producción Audiovisual',s:'Reels y videos corporativos'},
+];
+function buildSvcList(){
+  const wrap=document.createElement('div');wrap.className='svc-list';
+  SVCS.forEach(s=>{
+    const c=document.createElement('div');c.className='svc-item';
+    c.innerHTML=`<div class="svc-ico"><i class="${s.ico}"></i></div><div class="svc-txt"><strong>${s.n}</strong><span>${s.s}</span></div><i class="fas fa-chevron-right svc-arr"></i>`;
+    c.onclick=()=>{wrap.remove();sendUser(`Cuéntame más sobre ${s.n}`)};
+    wrap.appendChild(c);
+  });
+  return wrap;
+}
+function buildLeadCard(){
+  const lc=document.createElement('div');lc.className='lead-card';lc.id='lcard';
+  lc.innerHTML=`<h4><i class="fas fa-user-circle"></i>Déjanos tus datos</h4><input class="lc-inp" id="lname" placeholder="Tu nombre completo" type="text"/><input class="lc-inp" id="lemail" placeholder="Tu email de contacto" type="email"/><input class="lc-inp" id="lphone" placeholder="WhatsApp (opcional)" type="tel"/><button class="lc-btn" onclick="submitLead()"><i class="fas fa-paper-plane"></i> Enviar mis datos</button><span class="lc-skip" onclick="skipLead()">Continuar sin registrarme</span>`;
+  return lc;
+}
+function buildQuoteCard(){
+  const qc=document.createElement('div');qc.className='quote-card';
+  qc.innerHTML=`<h4>📋 Cotización Gratuita</h4><p>Cuéntanos tu proyecto y te enviamos propuesta en menos de 24 horas hábiles.</p><button class="quote-btn" onclick="openQuote()"><i class="fas fa-envelope"></i> Solicitar Cotización</button>`;
+  return qc;
+}
+function submitLead(){
+  const name=$('lname')?.value.trim();const email=$('lemail')?.value.trim();const phone=$('lphone')?.value.trim();
+  if(!name||!email){alert('Por favor ingresa tu nombre y email.');return}
+  $('lcard')?.remove();leadDone=true;
+  addUser(`Mi nombre es ${name}, email: ${email}${phone?', WA: '+phone:''}`);
+  history.push({role:'user',content:`Usuario: ${name}, email: ${email}${phone?', WA: '+phone:''}`});
+  window.open(`mailto:agenciafe.marketing@gmail.com?subject=Nuevo Lead: ${encodeURIComponent(name)}&body=${encodeURIComponent(`Lead desde chatbot:\nNombre: ${name}\nEmail: ${email}\nTeléfono: ${phone||'—'}`)}`);
+  askAI(`El usuario se llama ${name} y dejó su email ${email}. Agradécele y confirma que el equipo lo contactará pronto.`);
+}
+function skipLead(){$('lcard')?.remove();leadDone=true;addBot('Sin problema 😊 Puedes preguntarme lo que necesites. Si en algún momento quieres que te contactemos, dímelo.')}
+function openQuote(){window.open('mailto:agenciafe.marketing@gmail.com?subject=Cotización desde Chatbot FE&body=Hola, me interesa cotizar sus servicios.')}
+async function sendMsg(){const inp=$('txt');const txt=inp.value.trim();if(!txt)return;inp.value='';sendUser(txt)}
+async function sendUser(txt){addUser(txt);history.push({role:'user',content:txt});await askAI(txt)}
+async function askAI(userTxt){
+  const typing=showTyping();
+  const lo=userTxt.toLowerCase();
+  const wS=/(servicio|ofrecen|hacen|tienen|ayuda|necesito|quiero|busco)/i.test(lo);
+  const wC=/(cotiz|precio|costo|valor|presupuesto|cuánto|cuanto|plan)/i.test(lo);
+  const wN=/(n8n|automatiz|bot|flujo|crm|whatsapp automat)/i.test(lo);
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:SYS,messages:history.slice(-14)})
+    });
+    const data=await res.json();typing.remove();
+    const reply=data.content?.find(b=>b.type==='text')?.text||'Lo siento, tuve un error. Escríbenos directamente a agenciafe.marketing@gmail.com 😊';
+    history.push({role:'assistant',content:reply});
+    const extras={};
+    if(wS)extras.svc=true;
+    if(wC&&!leadDone)extras.lead=true;
+    if(wC)extras.quote=true;
+    if(wN)extras.qr=['¿Cuánto cuesta N8N?','¿Qué flujos automatizo?','Quiero cotizar'];
+    else if(!wS&&!wC&&history.length<=4)extras.qr=['Ver servicios','Cotizar','¿Quiénes son?','N8N'];
+    addBot(reply,extras);
+  }catch(e){typing.remove();addBot('Error de conexión. Contáctanos directamente: **+56 9 9415 4510** 📞')}
+}
+function showQM(){
+  const opts=['Ver todos los servicios','Quiero una cotización','Automatizaciones N8N','Casos de éxito','Hablar con un humano','Datos de contacto'];
+  $('qm')?.remove();
+  const menu=document.createElement('div');menu.id='qm';
+  menu.style.cssText='position:fixed;bottom:76px;left:10px;right:10px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:4px;box-shadow:0 8px 30px rgba(0,0,0,.12);z-index:10;animation:slideUp .2s ease';
+  menu.innerHTML=`<div style="font-size:9px;font-weight:800;color:#94a3b8;padding:0 5px 4px;letter-spacing:.8px;text-transform:uppercase">Acciones rápidas</div>`;
+  opts.forEach(o=>{
+    const b=document.createElement('button');
+    b.style.cssText='background:none;border:none;text-align:left;padding:8px 10px;border-radius:8px;font-size:12px;font-weight:700;color:#1e293b;font-family:"Montserrat",sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px';
+    b.innerHTML=`<i class="fas fa-chevron-right" style="color:var(--pk);font-size:9px"></i>${o}`;
+    b.onmouseover=()=>b.style.background='rgba(241,148,180,.08)';
+    b.onmouseout=()=>b.style.background='none';
+    b.onclick=()=>{menu.remove();sendUser(o)};
+    menu.appendChild(b);
+  });
+  document.body.appendChild(menu);
+  setTimeout(()=>document.addEventListener('click',function h(ev){if(!menu.contains(ev.target)){menu.remove();document.removeEventListener('click',h)}},{once:false}),100);
+}
+window.onload=()=>{
+  setTimeout(()=>{
+    addBot('¡Hola! 👋 Soy **Fe**, la asistente de **FE Agencia Marketing Digital**.\n\nEstoy aquí para ayudarte a potenciar tu marca. ¿En qué puedo orientarte hoy?',
+      {qr:['Ver servicios','Quiero cotizar','¿Quiénes son?','N8N Automatizaciones']});
+  },500);
+};
+</script>
+</body>
+</html>

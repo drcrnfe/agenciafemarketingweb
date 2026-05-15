@@ -1,293 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FE Agencia — Marketing Digital y Comunicaciones</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Great+Vibes&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="Css/style.css"/>
-
-<!-- Custom styles are loaded from Css/style.css -->
-<style>
-
-/* ── NAV ── */
-.fe-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(52,94,94,.08);transition:.3s}
-.fe-nav .inner{max-width:1280px;margin:0 auto;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:72px}
-.brand{display:flex;align-items:center;gap:10px;cursor:pointer}
-.brand-circle{width:42px;height:42px;border-radius:50%;background:var(--tl);border:2.5px solid var(--pk);display:flex;align-items:center;justify-content:center}
-.brand-circle span{color:#fff;font-weight:900;font-size:12px;letter-spacing:.5px}
-.brand-name{font-weight:800;font-size:17px;color:var(--tl);letter-spacing:.5px}
-.brand-name em{color:var(--pk);font-style:normal}
-.nav-links a{color:#475569;font-size:14px;font-weight:600;margin-left:32px;transition:.2s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--pk);transition:.3s}
-.nav-links a:hover{color:var(--pk)}
-.nav-links a:hover::after{width:100%}
-.nav-cta{background:var(--pk);color:var(--tl)!important;padding:10px 24px;border-radius:50px;font-weight:700!important;box-shadow:0 4px 16px rgba(241,148,180,.4);transition:.3s!important}
-.nav-cta:hover{background:var(--tl)!important;color:#fff!important;box-shadow:0 6px 20px rgba(52,94,94,.3)!important}
-.nav-cta::after{display:none!important}
-.hamburger{display:none;background:none;border:none;font-size:26px;color:var(--tl);cursor:pointer}
-.mob-menu{display:none;flex-direction:column;background:#fff;border-top:1px solid #f1f5f9;padding:16px 28px 24px;gap:12px}
-.mob-menu a{color:#475569;font-size:15px;font-weight:600;padding:8px 0;border-bottom:1px solid #f1f5f9}
-.mob-menu.open{display:flex}
-
-/* ── HERO ── */
-#hero{background:var(--tl);min-height:100vh;display:flex;align-items:center;padding-top:72px;position:relative;overflow:hidden}
-.hero-blob1{position:absolute;top:-80px;right:-80px;width:420px;height:420px;border-radius:50%;background:var(--pk);opacity:.15;filter:blur(60px)}
-.hero-blob2{position:absolute;bottom:-60px;left:-60px;width:320px;height:320px;border-radius:50%;background:#fff;opacity:.07;filter:blur(50px)}
-.hero-inner{max-width:1280px;margin:0 auto;padding:80px 28px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
-.hero-badge{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);color:var(--pk);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:6px 18px;border-radius:50px;margin-bottom:22px}
-.hero-title{font-size:clamp(34px,5vw,64px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:18px}
-.hero-title .script{font-family:'Great Vibes',cursive;font-size:clamp(48px,6vw,84px);color:var(--pk);font-weight:400;display:block;line-height:1;margin:4px 0}
-.hero-desc{color:rgba(255,255,255,.78);font-size:16px;font-weight:300;line-height:1.8;margin-bottom:36px;max-width:500px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn-pk{background:var(--pk);color:var(--tl);border:none;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px;box-shadow:0 6px 20px rgba(241,148,180,.4);transition:.3s}
-.btn-pk:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(241,148,180,.5)}
-.btn-outline{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;padding:14px 30px;border-radius:12px;font-size:15px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px;transition:.3s}
-.btn-outline:hover{background:#fff;color:var(--tl)}
-.hero-stats{display:flex;gap:36px;margin-top:44px}
-.stat-n{font-size:32px;font-weight:900;color:var(--pk)}
-.stat-l{font-size:10px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-.hero-img-wrap{position:relative}
-.hero-img-wrap::before{content:'';position:absolute;inset:0;background:var(--pk);border-radius:20px;transform:rotate(3deg);opacity:.25;top:16px;left:16px}
-.hero-card-float{background:rgba(255,255,255,.06);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:28px;position:relative;z-index:1}
-.hcf-top{display:flex;align-items:center;gap:10px;margin-bottom:18px}
-.hcf-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:13px}
-.hcf-name{color:#fff;font-weight:700;font-size:13px}
-.hcf-sub{color:rgba(255,255,255,.5);font-size:11px}
-.metric{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:rgba(255,255,255,.06);border-radius:10px;margin-bottom:8px}
-.metric-label{color:rgba(255,255,255,.6);font-size:12px}
-.metric-val{font-size:13px;font-weight:700}
-.v-green{color:#34d399}.v-pink{color:var(--pk)}.v-teal{color:#5eead4}
-
-/* ── BRANDS BAR ── */
-.brands-bar{background:#fff;padding:28px 0;border-bottom:1px solid #e2e8f0}
-.brands-label{text-align:center;font-size:11px;font-weight:700;color:#94a3b8;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px}
-.brands-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
-.brand-chip{background:#f1f5f9;border:1px solid #e2e8f0;padding:8px 20px;border-radius:50px;font-size:12px;font-weight:600;color:#475569}
-
-/* ── ABOUT ── */
-#about{padding:100px 28px;background:#fff}
-.section-label{font-size:11px;font-weight:700;color:var(--pk);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
-.section-heading{font-size:clamp(26px,4vw,40px);font-weight:800;color:var(--tl);line-height:1.2;margin-bottom:20px}
-.section-heading .script{font-family:'Great Vibes',cursive;color:var(--pk);font-size:clamp(38px,5vw,56px);font-weight:400;position:relative;top:6px}
-.about-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.about-imgs .img-card{background:linear-gradient(135deg,var(--tl),var(--tl2));border-radius:16px;overflow:hidden;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.2);font-size:48px}
-.about-imgs .img-card:first-child{transform:translateY(24px)}
-.about-imgs .img-card{height:200px}
-.check-list{list-style:none;padding:0;margin:24px 0 28px}
-.check-list li{display:flex;align-items:center;gap:10px;font-size:14px;color:#475569;padding:6px 0}
-.check-list li i{color:var(--pk);font-size:18px}
-.about-text p{color:var(--gy);line-height:1.85;font-size:15px;margin-bottom:14px}
-.link-underline{color:var(--tl);font-weight:700;border-bottom:2px solid var(--pk);padding-bottom:2px;font-size:14px;transition:.2s}
-.link-underline:hover{color:var(--pk)}
-.about-grid-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
-.ag-card{border-radius:14px;padding:22px;text-align:center;color:#fff}
-.agc-pk{background:linear-gradient(135deg,var(--pk),var(--pk2))}
-.agc-tl{background:linear-gradient(135deg,var(--tl),var(--tl2))}
-.agc-dk{background:linear-gradient(135deg,#1e293b,#334155)}
-.agc-mix{background:linear-gradient(135deg,var(--tl2),#1e293b)}
-.ag-n{font-size:32px;font-weight:900;display:block}
-.ag-l{font-size:11px;opacity:.8}
-
-/* ── SERVICES ── */
-#services{padding:100px 28px;background:var(--lt)}
-.services-inner{max-width:1280px;margin:0 auto}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;margin-top:48px}
-.svc-card{background:#fff;border-radius:18px;padding:28px;border:1px solid #f1f5f9;transition:.3s;position:relative;overflow:hidden}
-.svc-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:0;background:var(--pk);transition:.4s}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(52,94,94,.10)}
-.svc-card:hover::before{height:100%}
-.svc-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;transition:.3s}
-.si-pk{background:rgba(241,148,180,.12);color:var(--pk)}
-.si-tl{background:rgba(52,94,94,.1);color:var(--tl)}
-.svc-card:hover .si-pk,.svc-card:hover .si-tl{background:var(--pk);color:#fff}
-.svc-card h4{font-size:15px;font-weight:700;color:#1e293b;margin-bottom:8px}
-.svc-card p{font-size:13px;color:var(--gy);line-height:1.7}
-.svc-tag{display:inline-block;margin-top:10px;background:rgba(241,148,180,.1);color:var(--pk);font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
-.svc-tag.teal{background:rgba(52,94,94,.1);color:var(--tl)}
-.svc-card.featured{border:2px solid var(--pk);background:linear-gradient(135deg,rgba(241,148,180,.04),rgba(52,94,94,.03))}
-
-/* ── PORTFOLIO ── */
-#portfolio{padding:100px 28px;background:var(--tl)}
-#portfolio .section-heading{color:#fff}
-#portfolio .section-heading .script{color:var(--pk)}
-.tabs-row{display:flex;flex-wrap:wrap;gap:6px;margin:30px 0 0;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:0}
-.tab-btn{background:none;border:none;color:rgba(255,255,255,.55);padding:10px 18px;font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;letter-spacing:.5px;text-transform:uppercase;transition:.2s}
-.tab-btn.active{color:var(--pk);border-bottom-color:var(--pk)}
-.tab-btn:hover{color:#fff}
-.tab-pane{display:none;animation:fadeUp .3s ease}
-.tab-pane.active{display:block}
-.port-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-top:24px}
-.pc{border-radius:16px;overflow:hidden;cursor:pointer;transition:.3s}
-.pc:hover{transform:scale(1.03)}
-.pc-inner{height:260px;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;position:relative}
-.pc-inner::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6) 0%,transparent 60%)}
-.pc-inner>*{position:relative;z-index:1}
-.pc-label{color:#fff;font-size:12px;font-weight:700;line-height:1.4}
-.pc-brand{color:rgba(255,255,255,.55);font-size:10px;margin-top:3px}
-.ads-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
-.ads-box{border-radius:18px;padding:36px;color:#fff;text-align:center}
-.ads-meta-bg{background:linear-gradient(135deg,#1877F2,#0a4fa8)}
-.ads-goo-bg{background:linear-gradient(135deg,#34A853,#1a6e30)}
-.ads-box i{font-size:42px;margin-bottom:14px;display:block;opacity:.9}
-.ads-box h4{font-size:20px;font-weight:800;margin-bottom:8px}
-.ads-box p{font-size:13px;opacity:.78;line-height:1.6}
-.ads-pill{margin-top:18px;background:rgba(255,255,255,.12);border-radius:10px;padding:10px}
-.ads-pill .num{font-size:26px;font-weight:900}
-.ads-pill .lbl{font-size:10px;opacity:.65}
-.n8n-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:20px}
-.n8n-card{border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:26px;background:rgba(255,255,255,.04);backdrop-filter:blur(4px)}
-.n8n-card i{font-size:28px;margin-bottom:12px;display:block}
-.n8n-card h4{color:#fff;font-size:14px;font-weight:700;margin-bottom:8px}
-.n8n-card p{color:rgba(255,255,255,.55);font-size:12px;line-height:1.6}
-.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;margin-top:20px}
-.media-card{border-radius:16px;padding:26px;color:#fff;text-align:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
-.media-card i{font-size:32px;margin-bottom:10px;display:block;opacity:.75}
-.media-card .mc-title{font-size:13px;font-weight:700}
-.media-card .mc-sub{font-size:10px;opacity:.55;margin-top:4px}
-.clients-bar{display:flex;flex-wrap:wrap;gap:10px;margin-top:36px}
-.cl-chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);padding:7px 16px;border-radius:50px;color:rgba(255,255,255,.7);font-size:11px;font-weight:600}
-
-/* ── TESTIMONIAL ── */
-#testimonios{padding:100px 28px;background:var(--tl);position:relative;overflow:hidden}
-#testimonios::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(241,148,180,.15) 1px,transparent 1px);background-size:28px 28px}
-.testi-inner{max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.testi-icon{font-size:56px;color:var(--pk);margin-bottom:16px}
-.testi-heading{font-size:clamp(24px,3.5vw,36px);font-weight:800;color:#fff;margin-bottom:32px}
-.testi-card{background:rgba(255,255,255,.08);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:44px 48px}
-.testi-quote{font-size:17px;color:rgba(255,255,255,.88);line-height:1.8;font-style:italic;margin-bottom:28px;font-weight:300}
-.testi-author{display:flex;align-items:center;justify-content:center;gap:14px}
-.testi-av{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:2px solid var(--pk);display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:16px}
-.testi-name{color:#fff;font-weight:700;text-align:left;font-size:14px}
-.testi-role{color:var(--pk);font-size:12px}
-
-/* ── QUOTE ── */
-#cotizar{padding:100px 28px;background:#fff}
-.quote-inner{max-width:1100px;margin:0 auto}
-.quote-grid{display:grid;grid-template-columns:1fr 1.65fr;gap:56px;align-items:start;margin-top:48px}
-.qi-title{font-size:20px;font-weight:700;color:var(--tl);margin-bottom:14px}
-.qi-desc{font-size:14px;color:var(--gy);line-height:1.8;margin-bottom:28px}
-.step-row{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
-.step-num{width:34px;height:34px;min-width:34px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));color:var(--tl);font-weight:900;font-size:13px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(241,148,180,.4)}
-.step-text strong{display:block;font-size:13px;font-weight:700;color:#1e293b}
-.step-text span{font-size:12px;color:var(--gy)}
-.qform{background:var(--lt);border-radius:20px;padding:36px;border:1px solid #e2e8f0}
-.form-label-custom{display:block;font-size:11px;font-weight:700;color:#1e293b;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
-.form-control-custom{width:100%;padding:12px 16px;border:1.5px solid #e2e8f0;border-radius:10px;font-size:14px;font-family:'Montserrat',sans-serif;color:#1e293b;background:#fff;outline:none;transition:.2s}
-.form-control-custom:focus{border-color:var(--pk);box-shadow:0 0 0 3px rgba(241,148,180,.15)}
-textarea.form-control-custom{resize:vertical;min-height:100px}
-.chk-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:6px}
-.chk-item{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;background:#fff;transition:.2s;font-size:11px;font-weight:600;color:#475569}
-.chk-item:hover{border-color:var(--pk);color:var(--pk)}
-.chk-item input{accent-color:var(--pk);width:13px;height:13px}
-.btn-submit{width:100%;background:linear-gradient(135deg,var(--pk),var(--pk2));color:var(--tl);border:none;padding:16px;border-radius:12px;font-size:15px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;transition:.3s;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:14px;box-shadow:0 6px 20px rgba(241,148,180,.4);letter-spacing:.5px}
-.btn-submit:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(241,148,180,.5);color:var(--tl)}
-.form-note{font-size:11px;color:#94a3b8;text-align:center;margin-top:10px}
-
-/* ── CONTACT ── */
-#contacto{padding:80px 28px;background:linear-gradient(135deg,var(--pk)/10 0%,rgba(241,148,180,.08) 100%);background:linear-gradient(135deg,rgba(241,148,180,.08),rgba(52,94,94,.06))}
-.contact-inner{max-width:860px;margin:0 auto;text-align:center}
-.contact-inner .section-heading{color:var(--tl)}
-.contact-cards{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin-top:40px}
-.cc-card{background:#fff;border:1px solid #f1f5f9;border-radius:16px;padding:26px 32px;min-width:190px;text-align:center;box-shadow:0 4px 20px rgba(52,94,94,.06);transition:.3s}
-.cc-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(52,94,94,.12)}
-.cc-icon{font-size:26px;margin-bottom:10px;display:block}
-.cc-label{font-size:10px;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:5px}
-.cc-val{font-size:13px;font-weight:700;color:var(--tl)}
-.social-row{display:flex;justify-content:center;gap:14px;margin-top:36px}
-.soc{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:17px;color:#fff;transition:.3s;border:none;cursor:pointer}
-.soc:hover{transform:translateY(-4px) scale(1.1)}
-.soc-ig{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
-.soc-li{background:#0A66C2}
-.soc-tt{background:#000}
-
-/* ── FOOTER ── */
-footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
-.footer-inner{max-width:1280px;margin:0 auto}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.5fr;gap:40px;margin-bottom:40px}
-.footer-brand .fb-circle{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;margin-right:8px}
-.footer-brand .fb-circle span{color:var(--tl);font-weight:900;font-size:11px}
-.footer-brand .fb-name{color:#fff;font-weight:800;font-size:16px}
-.footer-brand .brand-row{display:flex;align-items:center;margin-bottom:14px}
-.footer-brand p{font-size:13px;line-height:1.75;color:rgba(255,255,255,.6)}
-.ft-title{font-weight:700;font-size:14px;color:var(--pk);margin-bottom:14px}
-.ft-links{list-style:none;padding:0}
-.ft-links li{margin-bottom:8px}
-.ft-links a{font-size:13px;color:rgba(255,255,255,.65);transition:.2s}
-.ft-links a:hover{color:var(--pk)}
-.ft-contact-item{display:flex;align-items:center;gap:8px;font-size:13px;color:rgba(255,255,255,.65);margin-bottom:8px}
-.ft-contact-item i{color:var(--pk);font-size:15px;width:16px}
-.footer-divider{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.footer-copy{font-size:12px;color:rgba(255,255,255,.45)}
-.footer-soc{display:flex;gap:12px}
-.footer-soc a{color:rgba(255,255,255,.5);font-size:16px;transition:.2s}
-.footer-soc a:hover{color:var(--pk)}
-
-/* ── CHATBOT ── */
-#chat-fab{position:fixed;bottom:28px;right:28px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;cursor:pointer;z-index:2000;font-size:22px;color:var(--tl);box-shadow:0 8px 28px rgba(241,148,180,.55);animation:pulse-fab 2.5s infinite;display:flex;align-items:center;justify-content:center;position:fixed}
-.chat-notif{position:absolute;top:-2px;right:-2px;width:18px;height:18px;background:#ef4444;border-radius:50%;border:2px solid #fff;font-size:9px;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800}
-#chat-win{position:fixed;bottom:100px;right:28px;width:390px;height:600px;border-radius:22px;box-shadow:0 24px 70px rgba(52,94,94,.25);z-index:1999;display:none;overflow:hidden;border:1px solid rgba(52,94,94,.12)}
-#chat-win.open{display:block}
-.chat-hdr{background:linear-gradient(135deg,var(--tl),var(--tl2));padding:16px 20px;display:flex;align-items:center;gap:12px}
-.ch-av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:13px;flex-shrink:0}
-.ch-name{color:#fff;font-weight:700;font-size:14px}
-.ch-status{color:rgba(255,255,255,.65);font-size:11px;display:flex;align-items:center;gap:5px}
-.dot-on{width:7px;height:7px;background:#34d399;border-radius:50%;animation:pulse 2s infinite}
-.ch-close{background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;margin-left:auto}
-.chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#f8fafc}
-.msg{max-width:84%;animation:fadeUp .3s ease}
-.msg.bot{align-self:flex-start}
-.msg.user{align-self:flex-end}
-.msg-bbl{padding:11px 15px;border-radius:16px;font-size:13px;line-height:1.65;font-family:'Montserrat',sans-serif}
-.msg.bot .msg-bbl{background:#fff;color:#1e293b;border:1px solid #e2e8f0;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-.msg.user .msg-bbl{background:linear-gradient(135deg,var(--pk),var(--pk2));color:var(--tl);border-bottom-right-radius:4px;font-weight:600}
-.msg-time{font-size:10px;color:#94a3b8;margin-top:4px;padding:0 4px}
-.typing{display:flex;align-items:center;gap:5px;padding:11px 15px}
-.typing span{width:7px;height:7px;background:#94a3b8;border-radius:50%;animation:bounce .8s ease-in-out infinite}
-.typing span:nth-child(2){animation-delay:.15s}
-.typing span:nth-child(3){animation-delay:.3s}
-.chat-inp-area{padding:13px 16px;border-top:1px solid #e2e8f0;display:flex;gap:10px;align-items:center;background:#fff}
-#chat-inp{flex:1;border:1.5px solid #e2e8f0;border-radius:50px;padding:10px 16px;font-size:13px;font-family:'Montserrat',sans-serif;outline:none;transition:.2s;color:#1e293b}
-#chat-inp:focus{border-color:var(--pk)}
-#chat-send{width:38px;height:38px;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;border-radius:50%;color:var(--tl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:.2s}
-#chat-send:hover{transform:scale(1.1)}
-
-/* ── ANIMATIONS ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-@keyframes pulse-fab{0%,100%{box-shadow:0 8px 28px rgba(241,148,180,.55)}50%{box-shadow:0 8px 36px rgba(241,148,180,.85)}}
-
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .nav-links,.nav-cta{display:none!important}
-  .hamburger{display:block}
-  .hero-inner{grid-template-columns:1fr;padding:56px 20px}
-  .hero-card-float{display:none}
-  .hero-stats{justify-content:center;gap:24px}
-  .about-inner,.quote-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .ads-pair{grid-template-columns:1fr}
-  .testi-card{padding:28px 22px}
-}
-@media(max-width:480px){
-  .footer-grid{grid-template-columns:1fr}
-  .chk-grid{grid-template-columns:1fr}
-}
-</style>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FE Agencia — Marketing Digital y Comunicaciones</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="Css/style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
-<!-- NAV -->
+<!-- ════════ NAV ════════ -->
 <nav class="fe-nav" id="mainNav">
-  <div class="inner">
-    <div class="brand" onclick="goTo('hero')">
-      <div class="brand-circle"><span>FE</span></div>
-      <div class="brand-name">AGENCIA <em>FE</em></div>
+  <div class="nav-inner">
+    <div class="brand" onclick="scrollTo('hero')">
+      <div class="brand-mark"><span>FE</span></div>
+      <div class="brand-text">
+        <span class="b1">Agencia</span>
+        <span class="b2">Fe</span>
+      </div>
     </div>
     <div class="nav-links">
       <a href="#about">Nosotros</a>
@@ -297,7 +29,7 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
       <a href="#cotizar">Cotizar</a>
       <a href="#contacto" class="nav-cta">Contacto</a>
     </div>
-    <button class="hamburger" onclick="toggleMob()">☰</button>
+    <button class="hamburger" onclick="toggleMob()"><i class="fas fa-bars"></i></button>
   </div>
   <div class="mob-menu" id="mobMenu">
     <a href="#about" onclick="closeMob()">Nosotros</a>
@@ -309,22 +41,24 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ════════ HERO ════════ -->
 <section id="hero">
-  <div class="hero-blob1"></div>
-  <div class="hero-blob2"></div>
+  <div class="hero-bg-grid"></div>
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-orb3"></div>
   <div class="hero-inner">
     <div>
       <div class="hero-badge">Marketing Digital &amp; Comunicaciones</div>
       <h1 class="hero-title">
         Elevamos tu marca con
         <span class="script">Estrategia</span>
-        y Pasión
+        y <span class="accent">Pasión</span>
       </h1>
-      <p class="hero-desc">Transformamos ideas en resultados digitales. Combinamos creatividad y datos para conectar tu negocio con su audiencia ideal, con más de 15 años de experiencia.</p>
+      <p class="hero-desc">Transformamos ideas en resultados digitales. Creatividad y datos al servicio de tu negocio, con más de 15 años de experiencia en TV, publicidad y marketing.</p>
       <div class="hero-btns">
-        <button class="btn-pk" onclick="goTo('cotizar')"><i class="fas fa-paper-plane"></i> Solicitar Cotización</button>
-        <button class="btn-outline" onclick="goTo('services')"><i class="fas fa-th-large"></i> Ver Servicios</button>
+        <button class="btn-pk" onclick="scrollTo('cotizar')"><i class="fas fa-paper-plane"></i> Cotización Gratuita</button>
+        <a href="#services" style="color:rgba(255,255,255,.65);font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:7px;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.25);transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Ver servicios <i class="fas fa-arrow-down" style="font-size:11px"></i></a>
       </div>
       <div class="hero-stats">
         <div><div class="stat-n">15+</div><div class="stat-l">Años de Exp.</div></div>
@@ -332,22 +66,25 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div><div class="stat-n">12</div><div class="stat-l">Servicios</div></div>
       </div>
     </div>
-    <div class="hero-img-wrap">
-      <div class="hero-card-float">
-        <div class="hcf-top">
-          <div class="hcf-av">FE</div>
-          <div><div class="hcf-name">Dashboard Marketing</div><div class="hcf-sub">Este mes · Resultados en vivo</div></div>
+    <div class="hero-card">
+      <div class="hc-hdr">
+        <div class="hc-av">FE</div>
+        <div>
+          <div class="hc-title">Dashboard Marketing</div>
+          <div class="hc-sub">Este mes · Tiempo real</div>
         </div>
-        <div class="metric"><span class="metric-label"><i class="fab fa-instagram"></i> Engagement RRSS</span><span class="metric-val v-green">↑ 42%</span></div>
-        <div class="metric"><span class="metric-label"><i class="fas fa-bullseye"></i> Meta ADS ROAS</span><span class="metric-val v-pink">3.8x</span></div>
-        <div class="metric"><span class="metric-label"><i class="fab fa-google"></i> Posición Google</span><span class="metric-val v-teal">#1 SEO</span></div>
-        <div class="metric"><span class="metric-label"><i class="fas fa-robot"></i> N8N Automatiz.</span><span class="metric-val v-green">✓ Activo</span></div>
+        <div class="live-dot"></div>
       </div>
+      <div class="metric-row"><span class="m-label"><i class="fab fa-instagram"></i> Engagement RRSS</span><span class="m-val vg">↑ 42%</span></div>
+      <div class="metric-row"><span class="m-label"><i class="fas fa-bullseye"></i> Meta ADS ROAS</span><span class="m-val vp">3.8x</span></div>
+      <div class="metric-row"><span class="m-label"><i class="fab fa-google"></i> Posición SEO</span><span class="m-val vt">#1 Google</span></div>
+      <div class="metric-row"><span class="m-label"><i class="fas fa-robot"></i> N8N Automatiz.</span><span class="m-val vg">✓ Activo</span></div>
+      <div class="metric-row"><span class="m-label"><i class="fas fa-chart-bar"></i> Conv. Rate</span><span class="m-val vy">+28%</span></div>
     </div>
   </div>
 </section>
 
-<!-- BRANDS -->
+<!-- ════════ BRANDS ════════ -->
 <div class="brands-bar">
   <div class="brands-label">Empresas que confían en nosotros</div>
   <div class="brands-chips">
@@ -360,41 +97,48 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
   </div>
 </div>
 
-<!-- ABOUT -->
+<!-- ════════ ABOUT ════════ -->
 <section id="about">
-  <div class="about-inner" style="max-width:1280px;margin:0 auto">
-    <div class="about-imgs">
-      <div class="img-card" style="background:linear-gradient(135deg,var(--tl),var(--tl2))"><i class="fas fa-chart-line" style="font-size:52px;color:rgba(241,148,180,.4)"></i></div>
-      <div class="img-card" style="background:linear-gradient(135deg,#1e293b,#334155);transform:translateY(24px)"><i class="fas fa-users" style="font-size:52px;color:rgba(241,148,180,.3)"></i></div>
-      <div style="grid-column:span 2" class="about-grid-cards">
-        <div class="ag-card agc-pk"><span class="ag-n">15+</span><span class="ag-l">Años de Experiencia</span></div>
-        <div class="ag-card agc-tl"><span class="ag-n">100%</span><span class="ag-l">Dedicación Total</span></div>
+  <div class="about-wrap">
+    <div class="about-visual">
+      <div class="av-card av-c1"><i class="fas fa-chart-line av-icon"></i></div>
+      <div class="av-card av-c2"><i class="fas fa-users av-icon"></i></div>
+      <div class="av-cards">
+        <div class="av-stat av-s1"><span class="av-num">15+</span><span class="av-lbl">Años de Experiencia</span></div>
+        <div class="av-stat av-s2"><span class="av-num">100%</span><span class="av-lbl">Dedicación Total</span></div>
       </div>
     </div>
-    <div>
-      <div class="section-label">Sobre Nosotros</div>
-      <h2 class="section-heading">Impulsando visiones con <span class="script">creatividad</span></h2>
-      <p style="color:var(--gy);line-height:1.85;font-size:15px;margin-bottom:12px">Somos más que una agencia; somos tus socios estratégicos. En <strong>Agencia Fe</strong>, creemos en el poder de una comunicación auténtica. Nuestro equipo multidisciplinario se dedica a entender la esencia de tu marca para proyectarla con fuerza en el mundo digital.</p>
-      <p style="color:var(--gy);line-height:1.85;font-size:15px">Más de 15 años de experiencia en televisión, publicidad, marketing digital y comunicación estratégica respaldan cada estrategia que diseñamos.</p>
+    <div class="about-text">
+      <div class="section-pill">Sobre Nosotros</div>
+      <h2 class="section-title">Impulsando visiones con <span class="script">creatividad</span></h2>
+      <p>Somos más que una agencia; somos tus socios estratégicos. En <strong>Agencia Fe</strong>, creemos en el poder de una comunicación auténtica y orientada a resultados medibles.</p>
+      <p>Más de 15 años de experiencia en televisión, publicidad, marketing digital y comunicación estratégica respaldan cada decisión que tomamos para tu marca.</p>
       <ul class="check-list">
-        <li><i class="material-icons">check_circle</i> Estrategias personalizadas para cada cliente.</li>
-        <li><i class="material-icons">check_circle</i> Enfoque en ROI y crecimiento medible.</li>
-        <li><i class="material-icons">check_circle</i> Diseño de vanguardia y tendencias actuales.</li>
-        <li><i class="material-icons">check_circle</i> Automatizaciones inteligentes con N8N.</li>
+        <li><div class="ci"><i class="fas fa-check"></i></div> Estrategias personalizadas y basadas en datos.</li>
+        <li><div class="ci"><i class="fas fa-check"></i></div> Enfoque en ROI y crecimiento medible.</li>
+        <li><div class="ci"><i class="fas fa-check"></i></div> Diseño de vanguardia y tendencias actuales.</li>
+        <li><div class="ci"><i class="fas fa-check"></i></div> Automatizaciones inteligentes con N8N.</li>
       </ul>
-      <a class="link-underline" href="#services">Conocer nuestros servicios →</a>
+      <a class="link-arrow" href="#services">Conocer nuestros servicios <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- ════════ SERVICES ════════ -->
 <section id="services">
-  <div class="services-inner">
-    <div class="section-label">Nuestros Servicios</div>
-    <h2 class="section-heading">Soluciones <span style="color:var(--pk)">Integrales</span></h2>
+  <div class="svc-wrap">
+    <div class="svc-header">
+      <div>
+        <div class="section-pill">Nuestros Servicios</div>
+        <h2 class="section-title" style="margin-bottom:0">Soluciones <span style="color:var(--pk)">Integrales</span></h2>
+      </div>
+      <button class="btn-pk" onclick="scrollTo('cotizar')" style="white-space:nowrap">
+        <i class="fas fa-paper-plane"></i> Solicitar Cotización
+      </button>
+    </div>
     <div class="svc-grid">
       <div class="svc-card"><div class="svc-icon si-pk"><i class="fab fa-instagram"></i></div><h4>SMO – Social Media Optimization</h4><p>Gestión de perfiles en Instagram, Facebook y LinkedIn para maximizar alcance orgánico.</p></div>
-      <div class="svc-card"><div class="svc-icon si-tl"><i class="fas fa-ad"></i></div><h4>SMM – Campañas ADS</h4><p>Campañas pagadas de alto rendimiento en Google Ads y Meta Ads con seguimiento continuo.</p><span class="svc-tag teal">Google & Meta</span></div>
+      <div class="svc-card"><div class="svc-icon si-tl"><i class="fas fa-ad"></i></div><h4>SMM – Campañas ADS</h4><p>Campañas pagadas de alto rendimiento en Google Ads y Meta Ads con seguimiento continuo.</p><span class="svc-pill teal">Google & Meta</span></div>
       <div class="svc-card"><div class="svc-icon si-pk"><i class="fas fa-photo-video"></i></div><h4>Contenido Orgánico RRSS</h4><p>Diseño y edición con Adobe Suite en formato texto, imagen y video para redes sociales.</p></div>
       <div class="svc-card"><div class="svc-icon si-tl"><i class="fas fa-palette"></i></div><h4>Diseño Gráfico</h4><p>Identidad visual, materiales de comunicación y piezas gráficas de alto impacto para tu marca.</p></div>
       <div class="svc-card"><div class="svc-icon si-pk"><i class="fas fa-film"></i></div><h4>Producción Audiovisual</h4><p>Reels, videos corporativos y contenido multimedia profesional que conecta con tu audiencia.</p></div>
@@ -404,16 +148,16 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
       <div class="svc-card"><div class="svc-icon si-pk"><i class="fas fa-users"></i></div><h4>Gestión de Influencers</h4><p>Identificación, negociación y coordinación con influencers para amplificar tu marca.</p></div>
       <div class="svc-card"><div class="svc-icon si-tl"><i class="fas fa-chess"></i></div><h4>Estrategia Comunicacional</h4><p>Planificación estratégica integral de comunicaciones alineada a los objetivos de tu empresa.</p></div>
       <div class="svc-card"><div class="svc-icon si-pk"><i class="fas fa-comments"></i></div><h4>Asesorías Comunicacionales</h4><p>Consultoría personalizada para potenciar la comunicación interna y externa de tu organización.</p></div>
-      <div class="svc-card featured"><div class="svc-icon si-tl"><i class="fas fa-robot"></i></div><h4>Automatizaciones N8N</h4><p>Automatiza flujos de trabajo: CRM, WhatsApp, reportes, email marketing e integraciones.</p><span class="svc-tag">Nuevo</span></div>
+      <div class="svc-card featured"><div class="svc-icon si-tl"><i class="fas fa-robot"></i></div><h4>Automatizaciones N8N</h4><p>Automatiza flujos de trabajo: CRM, WhatsApp, reportes, email marketing e integraciones.</p><span class="svc-pill">Nuevo</span></div>
     </div>
   </div>
 </section>
 
-<!-- PORTFOLIO -->
+<!-- ════════ PORTFOLIO ════════ -->
 <section id="portfolio">
-  <div style="max-width:1280px;margin:0 auto">
-    <div class="section-label">Nuestro Trabajo</div>
-    <h2 class="section-heading">Resultados que <span class="script" style="font-size:clamp(38px,5vw,56px)">hablan</span></h2>
+  <div class="port-wrap">
+    <div class="section-pill" style="color:var(--pk)">Nuestro Trabajo</div>
+    <h2 class="section-title white">Resultados que <span class="script">hablan</span></h2>
     <div class="tabs-row">
       <button class="tab-btn active" onclick="switchTab('stories',this)">Stories</button>
       <button class="tab-btn" onclick="switchTab('feed',this)">Feed Posts</button>
@@ -423,7 +167,7 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
       <button class="tab-btn" onclick="switchTab('media',this)">Gestión Medios</button>
       <button class="tab-btn" onclick="switchTab('n8n',this)">N8N</button>
     </div>
-    <!-- Stories -->
+
     <div id="tp-stories" class="tab-pane active">
       <div class="port-grid">
         <div class="pc"><div class="pc-inner" style="background:linear-gradient(160deg,#1a0a2e,#8B1A4A)"><div class="pc-label">Conoce los Números de tu Corazón</div><div class="pc-brand">RemedyCell</div></div></div>
@@ -433,7 +177,7 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div class="pc"><div class="pc-inner" style="background:linear-gradient(160deg,#2d0a3e,#6B2D7A)"><div class="pc-label">Vitamina A y su Rol en el Metabolismo</div><div class="pc-brand">RemedyCell</div></div></div>
       </div>
     </div>
-    <!-- Feed -->
+
     <div id="tp-feed" class="tab-pane">
       <div class="port-grid">
         <div class="pc"><div class="pc-inner" style="background:linear-gradient(135deg,#1B4D3E,#345E5E)"><div class="pc-label">Adultos mayores: 19% menos riesgo con mayor masa muscular</div><div class="pc-brand">Dr. Alfonso Lozada</div></div></div>
@@ -442,7 +186,7 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div class="pc"><div class="pc-inner" style="background:linear-gradient(135deg,#1a4020,#2e6b35)"><div class="pc-label">Nutrientes para desinflamar tu organismo</div><div class="pc-brand">RemedyCell</div></div></div>
       </div>
     </div>
-    <!-- Reels -->
+
     <div id="tp-reels" class="tab-pane">
       <div class="port-grid">
         <div class="pc"><div class="pc-inner" style="background:linear-gradient(160deg,#0a0a2e,#2A4B4B)"><div class="pc-label">Los 3 Ingredientes para la Longevidad que Nadie Habla</div><div class="pc-brand">RemedyCell</div></div></div>
@@ -451,30 +195,30 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div class="pc"><div class="pc-inner" style="background:linear-gradient(160deg,#0a1a2e,#1a5090)"><div class="pc-label">Yo trabajo en Granolín desde Diciembre 2022</div><div class="pc-brand">Granolín</div></div></div>
       </div>
     </div>
-    <!-- ADS -->
+
     <div id="tp-ads" class="tab-pane">
       <div class="ads-pair">
-        <div class="ads-box ads-meta-bg"><i class="fab fa-meta"></i><h4>Meta ADS</h4><p>Campañas en Facebook e Instagram con segmentación precisa, optimización de conversiones y reportes detallados.</p><div class="ads-pill"><div class="num">3.8x</div><div class="lbl">ROAS Promedio</div></div></div>
-        <div class="ads-box ads-goo-bg"><i class="fab fa-google"></i><h4>Google ADS</h4><p>Campañas Search, Display y YouTube con optimización continua para maximizar el retorno de inversión.</p><div class="ads-pill"><div class="num">#1</div><div class="lbl">Posición Promedio</div></div></div>
+        <div class="ads-box meta-bg"><i class="fab fa-meta"></i><h4>Meta ADS</h4><p>Campañas en Facebook e Instagram con segmentación precisa, optimización de conversiones y reportes detallados.</p><div class="ads-kpi"><div class="kn">3.8x</div><div class="kl">ROAS Promedio</div></div></div>
+        <div class="ads-box goo-bg"><i class="fab fa-google"></i><h4>Google ADS</h4><p>Campañas Search, Display y YouTube con optimización continua para maximizar el retorno de inversión.</p><div class="ads-kpi"><div class="kn">#1</div><div class="kl">Posición Promedio</div></div></div>
       </div>
     </div>
-    <!-- SEO & Web -->
+
     <div id="tp-seo" class="tab-pane">
       <div class="ads-pair">
         <div class="ads-box" style="background:linear-gradient(135deg,var(--tl),var(--tl2))"><i class="fas fa-search"></i><h4>SEO Estratégico</h4><p>Optimización On-Page, Off-Page, linkbuilding, auditorías técnicas y contenido SEO para posicionarte en Google.</p></div>
         <div class="ads-box" style="background:linear-gradient(135deg,#1a1a3e,#2d2d6e)"><i class="fas fa-globe"></i><h4>Desarrollo Web</h4><p>Diseño y desarrollo de sitios web modernos, optimizados y orientados a la conversión. Tiendas online incluidas.</p></div>
       </div>
     </div>
-    <!-- Medios -->
+
     <div id="tp-media" class="tab-pane">
       <div class="media-grid">
-        <div class="media-card"><i class="fas fa-tv"></i><div class="mc-title">Televisión Nacional</div><div class="mc-sub">Dra. Silvana Acosta — Meganoticias</div></div>
-        <div class="media-card"><i class="fas fa-broadcast-tower"></i><div class="mc-title">Radio Infinita</div><div class="mc-sub">Dra. Silvana Acosta — Entrevista</div></div>
-        <div class="media-card"><i class="fas fa-newspaper"></i><div class="mc-title">Prensa &amp; Revistas</div><div class="mc-sub">Josefa Isensee — Las Recetas de</div></div>
-        <div class="media-card"><i class="fab fa-instagram"></i><div class="mc-title">Gestión de Redes</div><div class="mc-sub">Dr. Alfonso Lozada — Contenido médico</div></div>
+        <div class="media-card"><i class="fas fa-tv"></i><div class="mc-t">Televisión Nacional</div><div class="mc-s">Dra. Silvana Acosta — Meganoticias</div></div>
+        <div class="media-card"><i class="fas fa-broadcast-tower"></i><div class="mc-t">Radio Infinita</div><div class="mc-s">Dra. Silvana Acosta — Entrevista</div></div>
+        <div class="media-card"><i class="fas fa-newspaper"></i><div class="mc-t">Prensa &amp; Revistas</div><div class="mc-s">Josefa Isensee — Las Recetas de</div></div>
+        <div class="media-card"><i class="fab fa-instagram"></i><div class="mc-t">Gestión de Redes</div><div class="mc-s">Dr. Alfonso Lozada — Contenido médico</div></div>
       </div>
     </div>
-    <!-- N8N -->
+
     <div id="tp-n8n" class="tab-pane">
       <div class="n8n-grid">
         <div class="n8n-card"><i class="fas fa-envelope-open-text" style="color:#5eead4"></i><h4>Email Marketing Automatizado</h4><p>Flujos de email automáticos basados en comportamiento del usuario y etapas del funnel.</p></div>
@@ -483,36 +227,78 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div class="n8n-card"><i class="fas fa-chart-line" style="color:#f59e0b"></i><h4>Reportes Automáticos</h4><p>Dashboards y reportes de métricas de marketing entregados automáticamente en tu correo.</p></div>
       </div>
     </div>
+
     <div class="clients-bar">
-      <span style="color:rgba(255,255,255,.4);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-right:6px">Clientes:</span>
-      <span class="cl-chip">RemedyCell</span><span class="cl-chip">Granolín</span><span class="cl-chip">Solar Energías Renovables</span><span class="cl-chip">Josefa Isensee</span><span class="cl-chip">Dra. Silvana Acosta</span><span class="cl-chip">Dr. Alfonso Lozada</span>
+      <span style="color:rgba(255,255,255,.35);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;margin-right:6px">Clientes:</span>
+      <span class="cl-chip">RemedyCell</span>
+      <span class="cl-chip">Granolín</span>
+      <span class="cl-chip">Solar Energías Renovables</span>
+      <span class="cl-chip">Josefa Isensee</span>
+      <span class="cl-chip">Dra. Silvana Acosta</span>
+      <span class="cl-chip">Dr. Alfonso Lozada</span>
     </div>
+
+    <!-- Upload Zone -->
+    <div class="upload-zone" onclick="document.getElementById('fileInput').click()">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <span>Subir imágenes al portafolio</span>
+      <small>JPG · PNG · WEBP · Múltiples archivos</small>
+    </div>
+    <input type="file" id="fileInput" accept="image/*" multiple onchange="handleUpload(event)"/>
   </div>
 </section>
 
-<!-- TESTIMONIOS -->
+<!-- ════════ TESTIMONIOS ════════ -->
 <section id="testimonios">
-  <div class="testi-inner">
-    <div class="testi-icon"><i class="fas fa-quote-left"></i></div>
+  <div class="testi-wrap">
+    <div class="testi-icon"><i class="fab fa-instagram"></i></div>
     <h2 class="testi-heading">Lo que dicen nuestros clientes</h2>
-    <div class="testi-card">
-      <p class="testi-quote">"Agencia Fe transformó completamente nuestra presencia digital. Desde la estrategia de contenido hasta las campañas de pauta, cada paso fue manejado con profesionalismo y creatividad. Nuestras ventas han aumentado un 40% y nuestra comunidad online nunca había estado tan activa."</p>
-      <div class="testi-author">
-        <div class="testi-av">C</div>
-        <div>
-          <div class="testi-name">Carolina Méndez</div>
-          <div class="testi-role">CEO, Innova Moda</div>
+    <div class="ig-embeds">
+      <div class="ig-wrap">
+        <div class="ig-header">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram Reel</span>
+          <a href="https://www.instagram.com/agenciafe_marketing" target="_blank">@agenciafe_marketing ↗</a>
+        </div>
+        <div class="ig-frame">
+          <iframe id="igFrame1" src="about:blank" allowtransparency="true" allowfullscreen scrolling="no" frameborder="0"></iframe>
+        </div>
+      </div>
+      <div class="ig-wrap">
+        <div class="ig-header">
+          <i class="fab fa-instagram"></i>
+          <span>Instagram Reel</span>
+          <a href="https://www.instagram.com/agenciafe_marketing" target="_blank">@agenciafe_marketing ↗</a>
+        </div>
+        <div class="ig-frame">
+          <iframe id="igFrame2" src="about:blank" allowtransparency="true" allowfullscreen scrolling="no" frameborder="0"></iframe>
         </div>
       </div>
     </div>
+
+    <div class="ig-edit-panel" id="igEditPanel">
+      <p>📋 Pega las URLs de tus Reels de Instagram:</p>
+      <div class="ig-edit-grid">
+        <div>
+          <label class="ig-inp-label">Reel 1 — URL completa</label>
+          <input class="ig-inp" id="ig1url" type="url" placeholder="https://www.instagram.com/reel/ABC123/"/>
+        </div>
+        <div>
+          <label class="ig-inp-label">Reel 2 — URL completa</label>
+          <input class="ig-inp" id="ig2url" type="url" placeholder="https://www.instagram.com/reel/DEF456/"/>
+        </div>
+      </div>
+      <button class="btn-apply-ig" onclick="applyIgUrls()"><i class="fas fa-check"></i> Aplicar videos</button>
+    </div>
+    <button class="btn-edit-vids" onclick="toggleIgPanel()"><i class="fas fa-edit"></i> Editar videos</button>
   </div>
 </section>
 
-<!-- COTIZAR -->
+<!-- ════════ COTIZAR ════════ -->
 <section id="cotizar">
-  <div class="quote-inner">
-    <div class="section-label">Cotizador</div>
-    <h2 class="section-heading">Solicita tu <span style="color:var(--pk)">Cotización Gratuita</span></h2>
+  <div class="quote-wrap">
+    <div class="section-pill">Cotizador</div>
+    <h2 class="section-title">Solicita tu <span style="color:var(--pk)">Cotización Gratuita</span></h2>
     <div class="quote-grid">
       <div>
         <h3 class="qi-title">¿Por qué trabajar con nosotros?</h3>
@@ -523,48 +309,117 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div class="step-row"><div class="step-num">4</div><div class="step-text"><strong>¡Empezamos a crecer!</strong><span>Diseñamos tu estrategia y ponemos manos a la obra</span></div></div>
       </div>
       <div class="qform">
-        <div class="row g-3 mb-3">
-          <div class="col-6"><label class="form-label-custom">Nombre</label><input class="form-control-custom" id="q_name" placeholder="Tu nombre" type="text"/></div>
-          <div class="col-6"><label class="form-label-custom">Empresa</label><input class="form-control-custom" id="q_company" placeholder="Tu empresa" type="text"/></div>
-          <div class="col-6"><label class="form-label-custom">Email</label><input class="form-control-custom" id="q_email" placeholder="correo@empresa.com" type="email"/></div>
-          <div class="col-6"><label class="form-label-custom">Teléfono</label><input class="form-control-custom" id="q_phone" placeholder="+56 9 XXXX XXXX" type="tel"/></div>
+        <!-- LOADING STATE -->
+        <div id="form-loading">
+          <div class="spinner"></div>
+          <p style="font-size:13px;color:var(--gy);font-weight:600">Enviando tu solicitud...</p>
         </div>
-        <div class="mb-3">
-          <label class="form-label-custom">Servicios de Interés</label>
-          <div class="chk-grid">
-            <label class="chk-item"><input type="checkbox" value="SMO – Gestión RRSS"><span>SMO – Gestión RRSS</span></label>
-            <label class="chk-item"><input type="checkbox" value="SMM – ADS Google & Meta"><span>SMM – ADS</span></label>
-            <label class="chk-item"><input type="checkbox" value="Contenido Orgánico"><span>Contenido Orgánico</span></label>
-            <label class="chk-item"><input type="checkbox" value="Diseño Gráfico"><span>Diseño Gráfico</span></label>
-            <label class="chk-item"><input type="checkbox" value="Producción Audiovisual"><span>Prod. Audiovisual</span></label>
-            <label class="chk-item"><input type="checkbox" value="SEO & Web"><span>SEO &amp; Web</span></label>
-            <label class="chk-item"><input type="checkbox" value="Community Management"><span>Community Mgmt</span></label>
-            <label class="chk-item"><input type="checkbox" value="Estrategia Comunicacional"><span>Estrategia Comunic.</span></label>
-            <label class="chk-item"><input type="checkbox" value="Gestión de Influencers"><span>Influencers</span></label>
-            <label class="chk-item"><input type="checkbox" value="Voz Off Profesional"><span>Voz Off</span></label>
-            <label class="chk-item"><input type="checkbox" value="Asesorías Comunicacionales"><span>Asesorías</span></label>
-            <label class="chk-item"><input type="checkbox" value="Automatizaciones N8N"><span>Automatiz. N8N</span></label>
+
+        <!-- SUCCESS STATE -->
+        <div id="form-success">
+          <div class="success-icon"><i class="fas fa-check"></i></div>
+          <h3>¡Solicitud enviada con éxito!</h3>
+          <p>Hemos recibido tu cotización. Nuestro equipo la revisará y te contactará con una propuesta personalizada.</p>
+          <div class="success-details">
+            <div class="success-detail"><i class="fas fa-clock"></i> Respuesta en &lt;24 hrs hábiles</div>
+            <div class="success-detail"><i class="fas fa-lock"></i> Datos confidenciales</div>
+            <div class="success-detail"><i class="fas fa-envelope"></i> Revisa tu bandeja de entrada</div>
           </div>
+          <button class="btn-submit" style="max-width:280px;margin:0 auto" onclick="resetForm()">
+            <i class="fas fa-plus"></i> Nueva solicitud
+          </button>
         </div>
-        <div class="mb-3"><label class="form-label-custom">Presupuesto Mensual</label><select class="form-control-custom" id="q_budget"><option value="">Selecciona un rango</option><option>Menos de $500.000 CLP</option><option>$500.000 – $1.000.000 CLP</option><option>$1.000.000 – $2.000.000 CLP</option><option>$2.000.000 – $5.000.000 CLP</option><option>Más de $5.000.000 CLP</option><option>A conversar</option></select></div>
-        <div class="mb-0"><label class="form-label-custom">Cuéntanos sobre tu proyecto</label><textarea class="form-control-custom" id="q_msg" placeholder="¿A qué se dedica tu empresa? ¿Cuáles son tus objetivos?"></textarea></div>
-        <button class="btn-submit" onclick="sendQuote()"><i class="fas fa-paper-plane"></i> Enviar Cotización</button>
-        <p class="form-note"><i class="fas fa-lock" style="color:var(--pk)"></i> Tu información es confidencial. Respondemos en menos de 24 horas hábiles.</p>
+
+        <!-- FORM CONTENT -->
+        <div class="qform-inner" id="qform-inner">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-lbl">Nombre *</label>
+              <input class="form-ctrl" id="q_name" placeholder="Tu nombre completo" type="text" oninput="validateField(this,'name')"/>
+              <i class="fas fa-check field-ok-icon" id="ok-name"></i>
+              <div class="field-err" id="err-name">Por favor ingresa tu nombre</div>
+            </div>
+            <div class="form-group">
+              <label class="form-lbl">Empresa</label>
+              <input class="form-ctrl" id="q_company" placeholder="Tu empresa" type="text"/>
+            </div>
+            <div class="form-group">
+              <label class="form-lbl">Email *</label>
+              <input class="form-ctrl" id="q_email" placeholder="correo@empresa.com" type="email" oninput="validateField(this,'email')"/>
+              <i class="fas fa-check field-ok-icon" id="ok-email"></i>
+              <div class="field-err" id="err-email">Ingresa un email válido</div>
+            </div>
+            <div class="form-group">
+              <label class="form-lbl">Teléfono</label>
+              <input class="form-ctrl" id="q_phone" placeholder="+56 9 XXXX XXXX" type="tel"/>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:14px">
+            <label class="form-lbl">Servicios de Interés</label>
+            <div class="chk-grid">
+              <label class="chk-item"><input type="checkbox" value="SMO – Gestión RRSS"><span>SMO – Gestión RRSS</span></label>
+              <label class="chk-item"><input type="checkbox" value="SMM – ADS Google & Meta"><span>SMM – ADS</span></label>
+              <label class="chk-item"><input type="checkbox" value="Contenido Orgánico"><span>Contenido Orgánico</span></label>
+              <label class="chk-item"><input type="checkbox" value="Diseño Gráfico"><span>Diseño Gráfico</span></label>
+              <label class="chk-item"><input type="checkbox" value="Producción Audiovisual"><span>Prod. Audiovisual</span></label>
+              <label class="chk-item"><input type="checkbox" value="SEO & Web"><span>SEO &amp; Web</span></label>
+              <label class="chk-item"><input type="checkbox" value="Community Management"><span>Community Mgmt</span></label>
+              <label class="chk-item"><input type="checkbox" value="Estrategia Comunicacional"><span>Estrategia Comunic.</span></label>
+              <label class="chk-item"><input type="checkbox" value="Gestión de Influencers"><span>Influencers</span></label>
+              <label class="chk-item"><input type="checkbox" value="Voz Off Profesional"><span>Voz Off</span></label>
+              <label class="chk-item"><input type="checkbox" value="Asesorías Comunicacionales"><span>Asesorías</span></label>
+              <label class="chk-item"><input type="checkbox" value="Automatizaciones N8N"><span>Automatiz. N8N</span></label>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:14px">
+            <label class="form-lbl">Presupuesto Mensual</label>
+            <select class="form-ctrl" id="q_budget">
+              <option value="">Selecciona un rango</option>
+              <option>Menos de $500.000 CLP</option>
+              <option>$500.000 – $1.000.000 CLP</option>
+              <option>$1.000.000 – $2.000.000 CLP</option>
+              <option>$2.000.000 – $5.000.000 CLP</option>
+              <option>Más de $5.000.000 CLP</option>
+              <option>A conversar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-lbl">Cuéntanos sobre tu proyecto</label>
+            <textarea class="form-ctrl" id="q_msg" placeholder="¿A qué se dedica tu empresa? ¿Cuáles son tus objetivos de marketing?"></textarea>
+          </div>
+          <div class="field-err" id="err-general" style="margin-top:8px;font-size:12px"></div>
+          <button class="btn-submit" id="btn-submit" onclick="sendQuote()">
+            <i class="fas fa-paper-plane"></i> Enviar Cotización Gratuita
+          </button>
+          <p class="form-note"><i class="fas fa-lock" style="color:var(--pk)"></i> Tu información es 100% confidencial. Respondemos en menos de 24 horas hábiles.</p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACTO -->
+<!-- ════════ CONTACTO ════════ -->
 <section id="contacto">
-  <div class="contact-inner">
-    <div class="section-label">Contacto</div>
-    <h2 class="section-heading" style="color:var(--tl)">¿Listo para hacer <span style="color:var(--pk)">crecer tu marca?</span></h2>
-    <p style="color:var(--gy);font-size:15px;margin-top:12px">Agenda una consulta gratuita de 30 minutos y descubramos cómo ayudarte a alcanzar tus objetivos.</p>
-    <div class="contact-cards">
-      <div class="cc-card"><i class="fas fa-phone cc-icon" style="color:var(--tl)"></i><div class="cc-label">Teléfono</div><div class="cc-val">+56 9 9415 4510</div></div>
-      <div class="cc-card"><i class="fas fa-envelope cc-icon" style="color:var(--pk)"></i><div class="cc-label">Email</div><div class="cc-val" style="font-size:12px">agenciafe.marketing@gmail.com</div></div>
-      <div class="cc-card"><i class="fas fa-clock cc-icon" style="color:var(--tl)"></i><div class="cc-label">Horario</div><div class="cc-val">Lun – Vie | 9:00–18:00</div></div>
+  <div class="contact-wrap">
+    <div class="section-pill">Contacto Directo</div>
+    <h2 class="section-title">¿Listo para hacer crecer <span style="color:var(--pk)">tu marca?</span></h2>
+    <p class="contact-desc">Agenda una consulta gratuita de 30 minutos y descubramos cómo ayudarte a alcanzar tus objetivos digitales.</p>
+    <div class="cc-cards">
+      <div class="cc-card">
+        <div class="cc-icon-wrap cci-tl"><i class="fas fa-phone"></i></div>
+        <div class="cc-lbl">Teléfono</div>
+        <div class="cc-val">+56 9 9415 4510</div>
+      </div>
+      <div class="cc-card">
+        <div class="cc-icon-wrap cci-pk"><i class="fas fa-envelope"></i></div>
+        <div class="cc-lbl">Email</div>
+        <div class="cc-val" style="font-size:11.5px">agenciafe.marketing@gmail.com</div>
+      </div>
+      <div class="cc-card">
+        <div class="cc-icon-wrap cci-tl"><i class="fas fa-clock"></i></div>
+        <div class="cc-lbl">Horario de Atención</div>
+        <div class="cc-val">Lun – Vie · 9:00–18:00</div>
+      </div>
     </div>
     <div class="social-row">
       <a href="https://www.instagram.com/agenciafe_marketing" target="_blank" class="soc soc-ig"><i class="fab fa-instagram"></i></a>
@@ -574,16 +429,16 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ════════ FOOTER ════════ -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-brand">
-        <div class="brand-row">
-          <div class="fb-circle"><span>FE</span></div>
+        <div class="fb-logo">
+          <div class="fb-mark"><span>FE</span></div>
           <span class="fb-name">AGENCIA FE</span>
         </div>
-        <p>Marketing digital y comunicaciones estratégicas para marcas que buscan impacto real y crecimiento medible.</p>
+        <p>Marketing digital y comunicaciones estratégicas para marcas que buscan impacto real y crecimiento medible en el mundo digital.</p>
       </div>
       <div>
         <div class="ft-title">Explorar</div>
@@ -599,16 +454,16 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
         <div class="ft-title">Legal</div>
         <ul class="ft-links">
           <li><a href="#">Privacidad</a></li>
-          <li><a href="#">Términos</a></li>
+          <li><a href="#">Términos de Uso</a></li>
           <li><a href="#">Cookies</a></li>
         </ul>
       </div>
       <div>
         <div class="ft-title">Contacto</div>
-        <div class="ft-contact-item"><i class="fas fa-envelope"></i> agenciafe.marketing@gmail.com</div>
-        <div class="ft-contact-item"><i class="fas fa-phone"></i> +56 9 9415 4510</div>
-        <div class="ft-contact-item"><i class="fab fa-instagram"></i> @agenciafe_marketing</div>
-        <div class="ft-contact-item"><i class="fab fa-tiktok"></i> @agencia.fe.market</div>
+        <div class="ft-ci"><i class="fas fa-envelope"></i> agenciafe.marketing@gmail.com</div>
+        <div class="ft-ci"><i class="fas fa-phone"></i> +56 9 9415 4510</div>
+        <div class="ft-ci"><i class="fab fa-instagram"></i> @agenciafe_marketing</div>
+        <div class="ft-ci"><i class="fab fa-tiktok"></i> @agencia.fe.market</div>
       </div>
     </div>
     <div class="footer-divider">
@@ -622,25 +477,31 @@ footer{background:var(--tl);padding:56px 28px 24px;color:rgba(255,255,255,.75)}
   </div>
 </footer>
 
-<!-- CHATBOT FAB -->
-<button id="chat-fab" onclick="toggleChat()" title="Hablar con Fe">
-  <i class="fas fa-comment-dots"></i>
-  <div class="chat-notif">1</div>
-</button>
-
-<!-- CHATBOT WINDOW -->
-<div id="chat-win">
-  <iframe id="chat-iframe" src="about:blank" style="width:100%;height:100%;border:none;border-radius:20px;" title="Fe Asistente"></iframe>
+<!-- ════════ STICKY MOBILE CTA ════════ -->
+<div id="sticky-cta">
+  <p>¿Listo para crecer? <span>Consulta gratuita.</span></p>
+  <button class="sticky-btn" onclick="scrollTo('cotizar');hideStickyAfterClick()">Cotizar gratis →</button>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<!-- ════════ CHAT FAB ════════ -->
+<button id="chat-fab" onclick="toggleChat()" title="Hablar con Fe">
+  <i class="fas fa-comment-dots"></i>
+  <div class="chat-badge">1</div>
+</button>
+
+<!-- ════════ CHAT WINDOW ════════ -->
+<div id="chat-win">
+  <iframe id="chat-iframe" src="about:blank" style="width:100%;height:100%;border:none;border-radius:24px;" title="Fe Asistente Virtual"></iframe>
+</div>
+
+<!-- ════════ JS ════════ -->
 <script>
-// NAV
+/* ── NAV ── */
 function toggleMob(){document.getElementById('mobMenu').classList.toggle('open')}
 function closeMob(){document.getElementById('mobMenu').classList.remove('open')}
-function goTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
+function scrollTo(id){document.getElementById(id)?.scrollIntoView({behavior:'smooth'})}
 
-// TABS
+/* ── TABS ── */
 function switchTab(id,btn){
   document.querySelectorAll('.tab-pane').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
@@ -648,34 +509,431 @@ function switchTab(id,btn){
   btn.classList.add('active');
 }
 
-// QUOTE
-function sendQuote(){
+/* ── PORTFOLIO UPLOAD ── */
+const uploadedImgs={};
+function handleUpload(e){
+  const files=[...e.target.files];
+  const activeTab=document.querySelector('.tab-btn.active')?.textContent?.trim()||'Stories';
+  const tabMap={'Stories':'stories','Feed Posts':'feed','Reels':'reels','ADS':'ads','SEO & Web':'seo','Gestión Medios':'media','N8N':'n8n'};
+  const key=tabMap[activeTab]||'stories';
+  if(!uploadedImgs[key])uploadedImgs[key]=[];
+  files.forEach(file=>{
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      uploadedImgs[key].push({src:ev.target.result,name:file.name});
+      renderUploaded(key);
+    };
+    reader.readAsDataURL(file);
+  });
+  e.target.value='';
+}
+function renderUploaded(key){
+  const pane=document.getElementById('tp-'+key);
+  if(!pane)return;
+  let grid=pane.querySelector('.port-grid-up');
+  if(!grid){grid=document.createElement('div');grid.className='port-grid port-grid-up';grid.style.marginTop='16px';pane.appendChild(grid);}
+  grid.innerHTML='';
+  (uploadedImgs[key]||[]).forEach((img,i)=>{
+    const card=document.createElement('div');
+    card.className='pc';card.style.position='relative';
+    card.innerHTML=`<button class="pc-del" onclick="delImg('${key}',${i})"><i class="fas fa-times"></i></button><div class="pc-inner" style="background:url('${img.src}') center/cover"></div>`;
+    grid.appendChild(card);
+  });
+}
+function delImg(key,idx){uploadedImgs[key].splice(idx,1);renderUploaded(key)}
+
+/* ── INSTAGRAM EMBED ── */
+function toggleIgPanel(){
+  const p=document.getElementById('igEditPanel');
+  p.style.display=p.style.display==='block'?'none':'block';
+}
+function applyIgUrls(){
+  const u1=document.getElementById('ig1url').value.trim();
+  const u2=document.getElementById('ig2url').value.trim();
+  const toEmbed=url=>{url=url.replace(/\/?$/,'/');return url+'embed/captioned/'};
+  if(u1)document.getElementById('igFrame1').src=toEmbed(u1);
+  if(u2)document.getElementById('igFrame2').src=toEmbed(u2);
+  document.getElementById('igEditPanel').style.display='none';
+}
+
+/* ── QUOTE — EmailJS + inline validation ── */
+const EMAILJS_PUBLIC_KEY  = 'TU_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID  = 'TU_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'TU_TEMPLATE_ID';
+const FALLBACK_EMAIL      = 'agenciafe.marketing@gmail.com';
+
+(function(){
+  if(typeof emailjs!=='undefined') emailjs.init({publicKey:EMAILJS_PUBLIC_KEY});
+})();
+
+const VALIDATORS={
+  name:v=>v.trim().length>=2,
+  email:v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+};
+function validateField(input,type){
+  const valid=VALIDATORS[type]?.(input.value);
+  const errEl=document.getElementById('err-'+type);
+  const okEl=document.getElementById('ok-'+type);
+  input.classList.toggle('err',!valid&&input.value.length>0);
+  input.classList.toggle('ok',!!valid);
+  if(errEl)errEl.classList.toggle('show',!valid&&input.value.length>0);
+  if(okEl)okEl.classList.toggle('show',!!valid);
+  return valid;
+}
+function validateAll(){
+  const nv=validateField(document.getElementById('q_name'),'name');
+  const ev=validateField(document.getElementById('q_email'),'email');
+  if(!nv){document.getElementById('q_name').classList.add('err');document.getElementById('err-name').classList.add('show')}
+  if(!ev){document.getElementById('q_email').classList.add('err');document.getElementById('err-email').classList.add('show')}
+  return nv&&ev;
+}
+async function sendQuote(){
+  if(!validateAll())return;
   const n=document.getElementById('q_name').value.trim();
   const c=document.getElementById('q_company').value.trim();
   const e=document.getElementById('q_email').value.trim();
   const p=document.getElementById('q_phone').value.trim();
   const b=document.getElementById('q_budget').value;
   const m=document.getElementById('q_msg').value.trim();
-  if(!n||!e){alert('Por favor completa al menos tu nombre y email.');return;}
   const svcs=[...document.querySelectorAll('.chk-grid input:checked')].map(i=>i.value).join(', ')||'No especificado';
-  const body=`NUEVA SOLICITUD DE COTIZACIÓN — FE AGENCIA\n\n👤 Nombre: ${n}\n🏢 Empresa: ${c||'—'}\n📧 Email: ${e}\n📱 Teléfono: ${p||'—'}\n\n✅ SERVICIOS:\n${svcs}\n\n💰 PRESUPUESTO:\n${b||'—'}\n\n📝 PROYECTO:\n${m||'—'}\n\n---\nDesde agenciafe.marketing`;
-  window.open(`mailto:agenciafe.marketing@gmail.com?subject=Cotización%20FE%20Agencia%20—%20${encodeURIComponent(n)}&body=${encodeURIComponent(body)}`);
+  const inner=document.getElementById('qform-inner');
+  const loading=document.getElementById('form-loading');
+  inner.classList.add('fading');
+  setTimeout(()=>{inner.style.display='none';loading.classList.add('show')},300);
+  try{
+    if(EMAILJS_PUBLIC_KEY!=='TU_PUBLIC_KEY'&&typeof emailjs!=='undefined'){
+      await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{nombre:n,empresa:c||'—',email:e,telefono:p||'—',servicios:svcs,presupuesto:b||'—',mensaje:m||'—',reply_to:e});
+      showSuccess();
+    } else {
+      const body=`NUEVA COTIZACIÓN — FE AGENCIA\n\n👤 ${n}\n🏢 ${c||'—'}\n📧 ${e}\n📱 ${p||'—'}\n\n✅ SERVICIOS: ${svcs}\n\n💰 PRESUPUESTO: ${b||'—'}\n\n📝 ${m||'—'}`;
+      window.open(`mailto:${FALLBACK_EMAIL}?subject=Cotización — ${encodeURIComponent(n)}&body=${encodeURIComponent(body)}`);
+      setTimeout(showSuccess,800);
+    }
+  }catch(err){
+    loading.classList.remove('show');
+    inner.style.display='block';inner.classList.remove('fading');
+    const eg=document.getElementById('err-general');
+    eg.textContent='Hubo un error al enviar. Escríbenos directamente a '+FALLBACK_EMAIL;
+    eg.classList.add('show');
+  }
+}
+function showSuccess(){
+  document.getElementById('form-loading').classList.remove('show');
+  document.getElementById('form-success').classList.add('show');
+  setTimeout(()=>document.getElementById('form-success').scrollIntoView({behavior:'smooth',block:'center'}),200);
+}
+function resetForm(){
+  ['form-success','form-loading'].forEach(id=>document.getElementById(id).classList.remove('show'));
+  const inner=document.getElementById('qform-inner');
+  inner.style.display='block';inner.classList.remove('fading');
+  ['q_name','q_company','q_email','q_phone','q_budget','q_msg'].forEach(id=>{
+    const el=document.getElementById(id);if(el){el.value='';el.classList.remove('err','ok')}
+  });
+  document.querySelectorAll('.chk-grid input:checked').forEach(c=>c.checked=false);
+  document.querySelectorAll('.field-err,.field-ok-icon').forEach(e=>e.classList.remove('show'));
 }
 
-// CHATBOT iframe src
-const CHATBOT_HTML = `<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/><style>:root{--pk:#F194B4;--pk2:#f7b8ce;--tl:#345E5E;--tl2:#2A4B4B;--lt:#F8FAFC;--gy:#64748b;--rad:16px}*{box-sizing:border-box;margin:0;padding:0}html,body{height:100%;font-family:'Montserrat',sans-serif;background:#fff}body{display:flex;flex-direction:column;overflow:hidden}.hdr{background:linear-gradient(135deg,var(--tl),var(--tl2));padding:14px 16px;flex-shrink:0;position:relative;overflow:hidden}.hdr::before{content:'';position:absolute;top:-30px;right:-30px;width:90px;height:90px;border-radius:50%;background:rgba(241,148,180,.15)}.hdr-top{display:flex;align-items:center;gap:10px;position:relative;z-index:1}.av{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:13px;flex-shrink:0;border:2px solid rgba(255,255,255,.25)}.hdr-name{color:#fff;font-weight:800;font-size:14px}.hdr-status{display:flex;align-items:center;gap:5px;margin-top:2px}.dot{width:7px;height:7px;border-radius:50%;background:#34d399;animation:pulse 2s infinite;flex-shrink:0}.hdr-status span{color:rgba(255,255,255,.65);font-size:10px;font-weight:500}.hdr-actions{display:flex;gap:6px;margin-left:auto}.hdr-btn{background:rgba(255,255,255,.12);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:.2s}.hdr-btn:hover{background:rgba(255,255,255,.22)}.hdr-meta{display:flex;gap:7px;margin-top:11px;position:relative;z-index:1;flex-wrap:wrap}.hdr-chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:4px 10px;border-radius:20px;color:rgba(255,255,255,.8);font-size:9px;font-weight:600;display:flex;align-items:center;gap:4px}.hdr-chip i{color:var(--pk);font-size:9px}.msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:9px;background:var(--lt);scroll-behavior:smooth}.msgs::-webkit-scrollbar{width:3px}.msgs::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:4px}.date-sep{text-align:center;margin:4px 0}.date-sep span{font-size:9px;color:#94a3b8;background:#e2e8f0;padding:3px 10px;border-radius:20px;font-weight:600;letter-spacing:.5px}.msg{display:flex;flex-direction:column;max-width:86%;animation:slideUp .22s ease}.msg.bot{align-self:flex-start}.msg.user{align-self:flex-end}.msg-row{display:flex;align-items:flex-end;gap:7px}.msg.user .msg-row{flex-direction:row-reverse}.mini-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:8px;flex-shrink:0}.bbl{padding:10px 13px;font-size:12px;line-height:1.65;word-break:break-word}.msg.bot .bbl{background:#fff;color:#1e293b;border-radius:var(--rad) var(--rad) var(--rad) 4px;border:1px solid #e2e8f0;box-shadow:0 2px 6px rgba(0,0,0,.06)}.msg.user .bbl{background:linear-gradient(135deg,var(--pk),var(--pk2));color:var(--tl);border-radius:var(--rad) var(--rad) 4px var(--rad);font-weight:600}.msg-time{font-size:9px;color:#94a3b8;margin-top:2px;padding:0 3px}.msg.user .msg-time{text-align:right}.typing-row{display:flex;align-items:flex-end;gap:7px}.typing-bbl{padding:11px 14px;background:#fff;border-radius:var(--rad) var(--rad) var(--rad) 4px;border:1px solid #e2e8f0;display:flex;gap:4px;align-items:center}.typing-bbl span{width:6px;height:6px;background:#cbd5e1;border-radius:50%;animation:bounce .8s ease-in-out infinite}.typing-bbl span:nth-child(2){animation-delay:.15s}.typing-bbl span:nth-child(3){animation-delay:.3s}.qr-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px;align-self:flex-start;max-width:100%}.qr{background:#fff;border:1.5px solid var(--pk);color:var(--tl);padding:6px 12px;border-radius:20px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;white-space:nowrap}.qr:hover{background:var(--pk);color:var(--tl);transform:translateY(-2px);box-shadow:0 3px 10px rgba(241,148,180,.35)}.lead-card{background:#fff;border:1px solid #e2e8f0;border-radius:13px;padding:14px;align-self:flex-start;width:260px;box-shadow:0 3px 12px rgba(0,0,0,.07);animation:slideUp .3s ease;margin-top:6px}.lead-card h4{font-size:12px;font-weight:800;color:var(--tl);margin-bottom:10px;display:flex;align-items:center;gap:5px}.lead-card h4 i{color:var(--pk)}.lc-input{width:100%;padding:8px 11px;border:1.5px solid #e2e8f0;border-radius:7px;font-size:11px;font-family:'Montserrat',sans-serif;margin-bottom:7px;outline:none;color:#1e293b;transition:.2s}.lc-input:focus{border-color:var(--pk);box-shadow:0 0 0 2px rgba(241,148,180,.12)}.lc-btn{width:100%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);padding:9px;border-radius:7px;font-size:11px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;transition:.2s;margin-top:2px}.lc-btn:hover{transform:translateY(-1px);box-shadow:0 3px 10px rgba(241,148,180,.4)}.lc-skip{display:block;text-align:center;font-size:10px;color:#94a3b8;margin-top:6px;cursor:pointer;font-weight:600}.lc-skip:hover{color:var(--tl)}.svc-cards{display:flex;flex-direction:column;gap:6px;align-self:flex-start;width:100%;animation:slideUp .3s ease;margin-top:5px}.svc-mini{background:#fff;border:1px solid #f1f5f9;border-radius:9px;padding:9px 12px;display:flex;align-items:center;gap:9px;cursor:pointer;transition:.2s;box-shadow:0 1px 4px rgba(0,0,0,.04)}.svc-mini:hover{border-color:var(--pk);transform:translateX(3px)}.svc-mini-icon{width:30px;height:30px;border-radius:7px;background:rgba(241,148,180,.1);color:var(--pk);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}.svc-mini-text strong{display:block;font-size:11px;font-weight:700;color:#1e293b}.svc-mini-text span{font-size:10px;color:var(--gy)}.svc-mini-arr{color:#cbd5e1;margin-left:auto;font-size:11px}.quote-card{background:linear-gradient(135deg,rgba(241,148,180,.08),rgba(52,94,94,.06));border:1.5px solid rgba(241,148,180,.25);border-radius:13px;padding:14px;align-self:flex-start;width:260px;animation:slideUp .3s ease;margin-top:5px}.quote-card h4{font-size:12px;font-weight:800;color:var(--tl);margin-bottom:8px}.quote-card p{font-size:11px;color:var(--gy);margin-bottom:10px;line-height:1.6}.quote-btn{background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);padding:9px 14px;border-radius:7px;font-size:11px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;width:100%;transition:.2s}.quote-btn:hover{box-shadow:0 3px 10px rgba(241,148,180,.4);transform:translateY(-1px)}.inp-area{padding:12px 14px;border-top:1px solid #f1f5f9;background:#fff;flex-shrink:0}.inp-row{display:flex;gap:8px;align-items:center}.inp-wrap{flex:1;position:relative}.inp-wrap input{width:100%;border:1.5px solid #e2e8f0;border-radius:50px;padding:10px 40px 10px 16px;font-size:12px;font-family:'Montserrat',sans-serif;color:#1e293b;outline:none;transition:.2s;background:var(--lt)}.inp-wrap input:focus{border-color:var(--pk);background:#fff;box-shadow:0 0 0 3px rgba(241,148,180,.1)}.inp-wrap .att{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;color:#cbd5e1;cursor:pointer;font-size:13px;transition:.2s}.inp-wrap .att:hover{color:var(--pk)}.send-btn{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:.3s;box-shadow:0 3px 12px rgba(241,148,180,.4)}.send-btn:hover{transform:scale(1.1);box-shadow:0 5px 16px rgba(241,148,180,.55)}.inp-hint{font-size:9px;color:#94a3b8;text-align:center;margin-top:7px;font-weight:500}@keyframes slideUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.85)}}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}</style></head><body><div class="hdr"><div class="hdr-top"><div class="av">FE</div><div style="flex:1"><div class="hdr-name">Fe · Asistente FE Agencia</div><div class="hdr-status"><div class="dot"></div><span>En línea · Responde al instante</span></div></div><div class="hdr-actions"><button class="hdr-btn" onclick="window.open('tel:+56994154510')" title="Llamar"><i class="fas fa-phone"></i></button><button class="hdr-btn" onclick="window.open('mailto:agenciafe.marketing@gmail.com')" title="Email"><i class="fas fa-envelope"></i></button></div></div><div class="hdr-meta"><div class="hdr-chip"><i class="fas fa-robot"></i>Asistente IA</div><div class="hdr-chip"><i class="fas fa-shield-alt"></i>Privado</div><div class="hdr-chip"><i class="fas fa-bolt"></i>Respuesta inmediata</div></div></div><div class="msgs" id="msgs"><div class="date-sep"><span>HOY</span></div></div><div class="inp-area"><div class="inp-row"><div class="inp-wrap"><input id="txt" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter')sendMsg()" autocomplete="off"/><button class="att" onclick="showQuickMenu()" title="Acciones rápidas"><i class="fas fa-plus-circle"></i></button></div><button class="send-btn" onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button></div><div class="inp-hint">Powered by FE Agencia IA · agenciafe.marketing@gmail.com</div></div><script>const SYS=\`Eres Fe, la asistente virtual de FE Agencia Marketing Digital y Comunicaciones. Amable, profesional, cálida y orientada a la conversión. Responde siempre en español, respuestas cortas (máx 3 párrafos), usa emojis con moderación.\\n\\nSOBRE FE AGENCIA:\\n- +15 años experiencia en TV, publicidad, marketing digital y comunicación estratégica.\\n- Email: agenciafe.marketing@gmail.com | Tel: +56 9 9415 4510\\n- Fundadores: Daniel Carreño (+56994154510) y Constanza Olfos (+56998021211)\\n- Instagram: @agenciafe_marketing | TikTok: @agencia.fe.market | LinkedIn: Agencia Fe Marketing\\n\\nSERVICIOS (12):\\n1. SMO – Gestión Instagram, Facebook, LinkedIn\\n2. SMM – ADS Google & Meta\\n3. Contenido orgánico RRSS (Adobe Suite)\\n4. Diseño Gráfico\\n5. Producción Audiovisual (reels, videos)\\n6. SEO & Desarrollo Web\\n7. Asesorías Comunicacionales\\n8. Voz Off Profesional\\n9. Community Management (lun-vie, horario hábil)\\n10. Gestión de Influencers\\n11. Estrategia Comunicacional\\n12. Automatizaciones N8N (CRM, WhatsApp, email marketing, reportes)\\n\\nCLIENTES: RemedyCell, Granolín, Solar Energías Renovables, Josefa Isensee, Dra. Silvana Acosta, Dr. Alfonso Lozada.\\n\\nPRECIOS: Personalizados. Invita a cotización gratuita. Si el usuario muestra interés, pide su nombre y email de forma natural para conectarlo con el equipo.\`;let history=[],leadCollected=false;function now(){return new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'})}function scrollBottom(){const m=document.getElementById('msgs');m.scrollTop=m.scrollHeight}function fmt(t){return t.replace(/\\*\\*(.*?)\\*\\*/g,'<strong>$1</strong>').replace(/\\*(.*?)\\*/g,'<em>$1</em>').replace(/\\n/g,'<br>')}function esc(t){return t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}function addBotMsg(text,extras={}){const c=document.getElementById('msgs');const wrap=document.createElement('div');wrap.style.display='contents';const msgDiv=document.createElement('div');msgDiv.className='msg bot';const row=document.createElement('div');row.className='msg-row';const av=document.createElement('div');av.className='mini-av';av.textContent='Fe';const bbl=document.createElement('div');bbl.className='bbl';bbl.innerHTML=fmt(text);row.appendChild(av);row.appendChild(bbl);msgDiv.appendChild(row);const t=document.createElement('div');t.className='msg-time';t.textContent=now();msgDiv.appendChild(t);wrap.appendChild(msgDiv);c.appendChild(wrap);if(extras.qr&&extras.qr.length){const qrRow=document.createElement('div');qrRow.className='qr-row';extras.qr.forEach(q=>{const btn=document.createElement('button');btn.className='qr';btn.textContent=q;btn.onclick=()=>{qrRow.remove();sendUserMsg(q)};qrRow.appendChild(btn)});c.appendChild(qrRow)}if(extras.services){c.appendChild(buildServiceCards())}if(extras.leadForm&&!leadCollected){c.appendChild(buildLeadCard())}if(extras.quoteCard){c.appendChild(buildQuoteCard())}scrollBottom()}function addUserMsg(text){const c=document.getElementById('msgs');const d=document.createElement('div');d.className='msg user';d.innerHTML=\`<div class="msg-row"><div class="bbl">\${esc(text)}</div></div><div class="msg-time">\${now()}</div>\`;c.appendChild(d);scrollBottom()}function showTyping(){const c=document.getElementById('msgs');const d=document.createElement('div');d.id='typing';d.className='msg bot';d.innerHTML=\`<div class="typing-row"><div class="mini-av">Fe</div><div class="typing-bbl"><span></span><span></span><span></span></div></div>\`;c.appendChild(d);scrollBottom();return d}const SVCS=[{icon:'fab fa-instagram',name:'SMO – Gestión RRSS',desc:'Instagram, Facebook, LinkedIn'},{icon:'fas fa-ad',name:'SMM – Campañas ADS',desc:'Google Ads & Meta Ads'},{icon:'fas fa-photo-video',name:'Contenido Orgánico',desc:'Diseño, imagen y video'},{icon:'fas fa-robot',name:'Automatizaciones N8N',desc:'CRM, WhatsApp, email flows'},{icon:'fas fa-search',name:'SEO & Desarrollo Web',desc:'Posicionamiento y sitios web'},{icon:'fas fa-film',name:'Producción Audiovisual',desc:'Reels y videos corporativos'}];function buildServiceCards(){const wrap=document.createElement('div');wrap.className='svc-cards';SVCS.forEach(s=>{const card=document.createElement('div');card.className='svc-mini';card.innerHTML=\`<div class="svc-mini-icon"><i class="\${s.icon}"></i></div><div class="svc-mini-text"><strong>\${s.name}</strong><span>\${s.desc}</span></div><i class="fas fa-chevron-right svc-mini-arr"></i>\`;card.onclick=()=>{wrap.remove();sendUserMsg(\`Cuéntame más sobre \${s.name}\`)};wrap.appendChild(card)});return wrap}function buildLeadCard(){const lc=document.createElement('div');lc.className='lead-card';lc.id='leadCard';lc.innerHTML=\`<h4><i class="fas fa-user-circle"></i>Déjanos tus datos</h4><input class="lc-input" id="lc_name" placeholder="Tu nombre completo" type="text"/><input class="lc-input" id="lc_email" placeholder="Tu email de contacto" type="email"/><input class="lc-input" id="lc_phone" placeholder="WhatsApp (opcional)" type="tel"/><button class="lc-btn" onclick="submitLead()"><i class="fas fa-paper-plane"></i> Enviar mis datos</button><span class="lc-skip" onclick="skipLead()">Continuar sin registrarme</span>\`;return lc}function buildQuoteCard(){const qc=document.createElement('div');qc.className='quote-card';qc.innerHTML=\`<h4>📋 Cotización Gratuita</h4><p>Cuéntanos tu proyecto y te enviamos una propuesta personalizada en menos de 24 horas hábiles.</p><button class="quote-btn" onclick="openQuote()"><i class="fas fa-envelope"></i> Solicitar Cotización</button>\`;return qc}function submitLead(){const name=document.getElementById('lc_name')?.value.trim();const email=document.getElementById('lc_email')?.value.trim();const phone=document.getElementById('lc_phone')?.value.trim();if(!name||!email){alert('Por favor ingresa tu nombre y email.');return}document.getElementById('leadCard')?.remove();leadCollected=true;addUserMsg(\`Mi nombre es \${name}, email: \${email}\${phone?', WhatsApp: '+phone:''}\`);history.push({role:'user',content:\`Usuario: \${name}, email: \${email}\${phone?', WA: '+phone:''}\`});window.open(\`mailto:agenciafe.marketing@gmail.com?subject=Nuevo Lead: \${encodeURIComponent(name)}&body=\${encodeURIComponent(\`Lead desde chatbot:\\nNombre: \${name}\\nEmail: \${email}\\nTeléfono: \${phone||'—'}\`)}\`);askAI(\`El usuario se llama \${name} y dejó su email \${email}. Agradece y confirma que el equipo lo contactará pronto.\`)}function skipLead(){document.getElementById('leadCard')?.remove();leadCollected=true;addBotMsg('Sin problema 😊 Puedes preguntarme lo que necesites. Si en algún momento quieres que te contactemos, dímelo.')}function openQuote(){window.open('mailto:agenciafe.marketing@gmail.com?subject=Cotización desde Chatbot&body=Hola, me interesa cotizar sus servicios.')}async function sendMsg(){const inp=document.getElementById('txt');const txt=inp.value.trim();if(!txt)return;inp.value='';sendUserMsg(txt)}async function sendUserMsg(txt){addUserMsg(txt);history.push({role:'user',content:txt});await askAI(txt)}async function askAI(userTxt){const typing=showTyping();const lower=userTxt.toLowerCase();const wSvc=/(servicio|ofrecen|hacen|tienen|ayuda|necesito|quiero|busco)/i.test(lower);const wCot=/(cotiz|precio|costo|valor|presupuesto|cuánto|cuanto|plan)/i.test(lower);const wN8N=/(n8n|automatiz|bot|flujo|crm|whatsapp automat)/i.test(lower);try{const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:SYS,messages:history.slice(-14)})});const data=await res.json();typing.remove();const reply=data.content?.find(b=>b.type==='text')?.text||'Lo siento, tuve un error. Escríbenos a agenciafe.marketing@gmail.com 😊';history.push({role:'assistant',content:reply});const extras={};if(wSvc)extras.services=true;if(wCot&&!leadCollected)extras.leadForm=true;if(wCot)extras.quoteCard=true;if(wN8N)extras.qr=['¿Cuánto cuesta N8N?','¿Qué flujos automatizo?','Quiero cotizar'];else if(!wSvc&&!wCot&&history.length<=4)extras.qr=['Ver servicios','Cotizar','¿Quiénes son?','N8N Automatizaciones'];addBotMsg(reply,extras)}catch(e){typing.remove();addBotMsg('Error de conexión. Contáctanos: **+56 9 9415 4510** 📞')}}function showQuickMenu(){const opts=['Ver todos los servicios','Quiero una cotización','Automatizaciones N8N','Casos de éxito','Hablar con un humano','Datos de contacto'];document.getElementById('quickMenu')?.remove();const menu=document.createElement('div');menu.id='quickMenu';menu.style.cssText='position:fixed;bottom:72px;left:10px;right:10px;background:#fff;border:1px solid #e2e8f0;border-radius:13px;padding:9px;display:flex;flex-direction:column;gap:5px;box-shadow:0 6px 24px rgba(0,0,0,.12);z-index:10;animation:slideUp .2s ease';menu.innerHTML=\`<div style="font-size:9px;font-weight:700;color:#94a3b8;padding:0 5px 3px;letter-spacing:.5px;text-transform:uppercase">Acciones rápidas</div>\`;opts.forEach(o=>{const btn=document.createElement('button');btn.style.cssText='background:none;border:none;text-align:left;padding:7px 9px;border-radius:7px;font-size:12px;font-weight:600;color:#1e293b;font-family:"Montserrat",sans-serif;cursor:pointer;display:flex;align-items:center;gap:7px';btn.innerHTML=\`<i class="fas fa-chevron-right" style="color:var(--pk);font-size:9px"></i>\${o}\`;btn.onmouseover=()=>btn.style.background='rgba(241,148,180,.08)';btn.onmouseout=()=>btn.style.background='none';btn.onclick=()=>{menu.remove();sendUserMsg(o)};menu.appendChild(btn)});document.body.appendChild(menu);setTimeout(()=>document.addEventListener('click',function h(e){if(!menu.contains(e.target)){menu.remove();document.removeEventListener('click',h)}},{once:false}),100)}window.onload=()=>{setTimeout(()=>{addBotMsg('¡Hola! 👋 Soy **Fe**, la asistente de **FE Agencia Marketing Digital**.\\n\\nEstoy aquí para ayudarte a potenciar tu marca. ¿De qué te puedo orientar hoy?',{qr:['Ver servicios','Quiero cotizar','¿Quiénes son?','Automatizaciones N8N']})},500)};<\/script></body></html>`;
+/* ── STICKY MOBILE CTA ── */
+let stickyDismissed=false;
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>20);
+  if(stickyDismissed||window.innerWidth>768)return;
+  const el=document.getElementById('sticky-cta');
+  const cotizarTop=document.getElementById('cotizar')?.getBoundingClientRect().top??9999;
+  const show=window.scrollY>400&&cotizarTop>200;
+  el.style.display=show?'flex':'none';
+  setTimeout(()=>el.classList.toggle('visible',show),10);
+});
+function hideStickyAfterClick(){
+  stickyDismissed=true;
+  const el=document.getElementById('sticky-cta');
+  el.classList.remove('visible');
+  setTimeout(()=>el.style.display='none',400);
+}
 
-let chatOpen = false, iframeLoaded = false;
+/* ══════════════════════════════════════
+   CHATBOT HTML — injected via Blob
+══════════════════════════════════════ */
+const CHATBOT_HTML=`<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+:root{--pk:#F194B4;--pk2:#f7b8ce;--tl:#345E5E;--tl2:#2A4B4B;--lt:#F8FAFC;--gy:#64748b;--rad:16px}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;font-family:'Montserrat',sans-serif;background:#fff}
+body{display:flex;flex-direction:column;overflow:hidden}
+.hdr{background:linear-gradient(135deg,var(--tl),var(--tl2));padding:14px 18px;flex-shrink:0;position:relative;overflow:hidden}
+.hdr::before{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(241,148,180,.12)}
+.hdr-top{display:flex;align-items:center;gap:11px;position:relative;z-index:1}
+.av{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:13px;flex-shrink:0;box-shadow:0 4px 12px rgba(241,148,180,.4)}
+.hdr-info{flex:1}
+.hdr-name{color:#fff;font-weight:800;font-size:14px}
+.hdr-status{display:flex;align-items:center;gap:5px;margin-top:2px}
+.dot{width:7px;height:7px;border-radius:50%;background:#34d399;animation:pulse 2s infinite;flex-shrink:0}
+.hdr-status span{color:rgba(255,255,255,.6);font-size:10px;font-weight:600}
+.hdr-actions{display:flex;gap:6px}
+.hdr-btn{background:rgba(255,255,255,.12);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:12px;transition:.2s}
+.hdr-btn:hover{background:rgba(255,255,255,.22)}
+.hdr-chips{display:flex;gap:6px;margin-top:10px;position:relative;z-index:1;flex-wrap:wrap}
+.chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);padding:3px 10px;border-radius:20px;color:rgba(255,255,255,.75);font-size:9px;font-weight:700;display:flex;align-items:center;gap:4px}
+.chip i{color:var(--pk);font-size:9px}
+.msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;background:var(--lt);scroll-behavior:smooth}
+.msgs::-webkit-scrollbar{width:3px}
+.msgs::-webkit-scrollbar-thumb{background:#e2e8f0;border-radius:4px}
+.date-sep{text-align:center;margin:4px 0}
+.date-sep span{font-size:9px;color:#94a3b8;background:#e2e8f0;padding:3px 11px;border-radius:20px;font-weight:700;letter-spacing:.5px}
+.msg{display:flex;flex-direction:column;max-width:87%;animation:slideUp .22s ease}
+.msg.bot{align-self:flex-start}
+.msg.user{align-self:flex-end}
+.msg-row{display:flex;align-items:flex-end;gap:8px}
+.msg.user .msg-row{flex-direction:row-reverse}
+.mini-av{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--pk),var(--pk2));display:flex;align-items:center;justify-content:center;color:var(--tl);font-weight:900;font-size:8px;flex-shrink:0}
+.bbl{padding:10px 13px;font-size:12.5px;line-height:1.65;word-break:break-word}
+.msg.bot .bbl{background:#fff;color:#1e293b;border-radius:var(--rad) var(--rad) var(--rad) 4px;border:1px solid #e2e8f0;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.msg.user .bbl{background:linear-gradient(135deg,var(--pk),var(--pk2));color:var(--tl);border-radius:var(--rad) var(--rad) 4px var(--rad);font-weight:700}
+.msg-time{font-size:9px;color:#94a3b8;margin-top:3px;padding:0 4px}
+.msg.user .msg-time{text-align:right}
+.typing-row{display:flex;align-items:flex-end;gap:8px}
+.typing-bbl{padding:11px 15px;background:#fff;border-radius:var(--rad) var(--rad) var(--rad) 4px;border:1px solid #e2e8f0;display:flex;gap:4px;align-items:center}
+.typing-bbl span{width:6px;height:6px;background:#cbd5e1;border-radius:50%;animation:bounce .8s ease-in-out infinite}
+.typing-bbl span:nth-child(2){animation-delay:.15s}
+.typing-bbl span:nth-child(3){animation-delay:.3s}
+.qr-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:5px;align-self:flex-start;max-width:100%}
+.qr{background:#fff;border:1.5px solid var(--pk);color:var(--tl);padding:6px 13px;border-radius:20px;font-size:11px;font-weight:800;cursor:pointer;font-family:'Montserrat',sans-serif;transition:.2s;white-space:nowrap}
+.qr:hover{background:var(--pk);color:var(--tl);transform:translateY(-2px);box-shadow:0 4px 12px rgba(241,148,180,.35)}
+.lead-card{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:15px;align-self:flex-start;width:268px;box-shadow:0 4px 14px rgba(0,0,0,.07);animation:slideUp .3s ease;margin-top:6px}
+.lead-card h4{font-size:12px;font-weight:800;color:var(--tl);margin-bottom:11px;display:flex;align-items:center;gap:5px}
+.lead-card h4 i{color:var(--pk)}
+.lc-inp{width:100%;padding:8px 12px;border:1.5px solid #e2e8f0;border-radius:8px;font-size:11.5px;font-family:'Montserrat',sans-serif;margin-bottom:7px;outline:none;color:#1e293b;transition:.2s}
+.lc-inp:focus{border-color:var(--pk);box-shadow:0 0 0 3px rgba(241,148,180,.1)}
+.lc-btn{width:100%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);padding:9px;border-radius:8px;font-size:11.5px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;transition:.2s;margin-top:2px}
+.lc-btn:hover{box-shadow:0 4px 12px rgba(241,148,180,.4);transform:translateY(-1px)}
+.lc-skip{display:block;text-align:center;font-size:10px;color:#94a3b8;margin-top:7px;cursor:pointer;font-weight:700}
+.lc-skip:hover{color:var(--tl)}
+.svc-list{display:flex;flex-direction:column;gap:6px;align-self:flex-start;width:100%;animation:slideUp .3s ease;margin-top:5px}
+.svc-item{background:#fff;border:1px solid #f1f5f9;border-radius:10px;padding:9px 13px;display:flex;align-items:center;gap:10px;cursor:pointer;transition:.2s}
+.svc-item:hover{border-color:var(--pk);transform:translateX(3px)}
+.svc-ico{width:32px;height:32px;border-radius:8px;background:rgba(241,148,180,.1);color:var(--pk);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.svc-txt strong{display:block;font-size:11.5px;font-weight:800;color:#1e293b}
+.svc-txt span{font-size:10px;color:var(--gy)}
+.svc-arr{color:#e2e8f0;margin-left:auto;font-size:10px}
+.quote-card{background:linear-gradient(135deg,rgba(241,148,180,.07),rgba(52,94,94,.05));border:1.5px solid rgba(241,148,180,.2);border-radius:14px;padding:15px;align-self:flex-start;width:268px;animation:slideUp .3s ease;margin-top:5px}
+.quote-card h4{font-size:12px;font-weight:800;color:var(--tl);margin-bottom:7px}
+.quote-card p{font-size:11px;color:var(--gy);margin-bottom:10px;line-height:1.6}
+.quote-btn{background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);padding:9px 14px;border-radius:8px;font-size:11.5px;font-weight:800;font-family:'Montserrat',sans-serif;cursor:pointer;width:100%;transition:.2s}
+.quote-btn:hover{box-shadow:0 4px 12px rgba(241,148,180,.4);transform:translateY(-1px)}
+.inp-area{padding:13px 15px;border-top:1px solid #f1f5f9;background:#fff;flex-shrink:0}
+.inp-row{display:flex;gap:9px;align-items:center}
+.inp-wrap{flex:1;position:relative}
+.inp-wrap input{width:100%;border:1.5px solid #e2e8f0;border-radius:50px;padding:10px 40px 10px 16px;font-size:12.5px;font-family:'Montserrat',sans-serif;color:#1e293b;outline:none;transition:.2s;background:var(--lt)}
+.inp-wrap input:focus{border-color:var(--pk);background:#fff;box-shadow:0 0 0 3px rgba(241,148,180,.1)}
+.inp-wrap .att{position:absolute;right:13px;top:50%;transform:translateY(-50%);background:none;border:none;color:#cbd5e1;cursor:pointer;font-size:14px;transition:.2s}
+.inp-wrap .att:hover{color:var(--pk)}
+.send-btn{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--pk),var(--pk2));border:none;color:var(--tl);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;transition:.3s;box-shadow:0 4px 14px rgba(241,148,180,.4)}
+.send-btn:hover{transform:scale(1.12);box-shadow:0 6px 20px rgba(241,148,180,.55)}
+.inp-hint{font-size:9px;color:#94a3b8;text-align:center;margin-top:8px;font-weight:600}
+@keyframes slideUp{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+</style>
+</head>
+<body>
+<div class="hdr">
+  <div class="hdr-top">
+    <div class="av">FE</div>
+    <div class="hdr-info">
+      <div class="hdr-name">Fe · Asistente FE Agencia</div>
+      <div class="hdr-status"><div class="dot"></div><span>En línea · Responde al instante</span></div>
+    </div>
+    <div class="hdr-actions">
+      <button class="hdr-btn" onclick="window.open('tel:+56994154510')"><i class="fas fa-phone"></i></button>
+      <button class="hdr-btn" onclick="window.open('mailto:agenciafe.marketing@gmail.com')"><i class="fas fa-envelope"></i></button>
+    </div>
+  </div>
+  <div class="hdr-chips">
+    <div class="chip"><i class="fas fa-robot"></i>IA Asistente</div>
+    <div class="chip"><i class="fas fa-shield-alt"></i>Privado</div>
+    <div class="chip"><i class="fas fa-bolt"></i>Respuesta inmediata</div>
+  </div>
+</div>
+<div class="msgs" id="msgs">
+  <div class="date-sep"><span>HOY</span></div>
+</div>
+<div class="inp-area">
+  <div class="inp-row">
+    <div class="inp-wrap">
+      <input id="txt" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter')sendMsg()" autocomplete="off"/>
+      <button class="att" onclick="showQM()" title="Acciones rápidas"><i class="fas fa-plus-circle"></i></button>
+    </div>
+    <button class="send-btn" onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+  <div class="inp-hint">Powered by FE Agencia IA · agenciafe.marketing@gmail.com</div>
+</div>
+<script>
+const SYS=\`Eres Fe, la asistente virtual de FE Agencia Marketing Digital y Comunicaciones. Amable, profesional, cálida y orientada a la conversión. Responde siempre en español, respuestas concisas (máx 3 párrafos), usa emojis con moderación.
 
+SOBRE FE AGENCIA:
+- +15 años experiencia en TV, publicidad, marketing digital y comunicación estratégica.
+- Email: agenciafe.marketing@gmail.com | Tel: +56 9 9415 4510
+- Fundadores: Daniel Carreño (+56994154510) y Constanza Olfos (+56998021211)
+- Instagram: @agenciafe_marketing | TikTok: @agencia.fe.market | LinkedIn: Agencia Fe Marketing
+
+SERVICIOS (12):
+1. SMO – Gestión Instagram, Facebook, LinkedIn
+2. SMM – ADS Google & Meta
+3. Contenido orgánico RRSS (Adobe Suite)
+4. Diseño Gráfico
+5. Producción Audiovisual (reels, videos)
+6. SEO & Desarrollo Web
+7. Asesorías Comunicacionales
+8. Voz Off Profesional
+9. Community Management (lun-vie, horario hábil)
+10. Gestión de Influencers
+11. Estrategia Comunicacional
+12. Automatizaciones N8N (CRM, WhatsApp, email marketing, reportes)
+
+CLIENTES: RemedyCell, Granolín, Solar Energías Renovables, Josefa Isensee, Dra. Silvana Acosta, Dr. Alfonso Lozada.
+
+PRECIOS: Personalizados según proyecto. Invita a cotización gratuita sin compromiso. Si el usuario muestra interés, solicita su nombre y email de forma natural.\`;
+let history=[],leadDone=false;
+const now=()=>new Date().toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+const fmt=t=>t.replace(/\\*\\*(.*?)\\*\\*/g,'<strong>$1</strong>').replace(/\\*(.*?)\\*/g,'<em>$1</em>').replace(/\\n/g,'<br>');
+const esc=t=>t.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const $ =id=>document.getElementById(id);
+function scrollBottom(){const m=$('msgs');m.scrollTop=m.scrollHeight}
+
+function addBot(text,extras={}){
+  const c=$('msgs');const wrap=document.createElement('div');wrap.style.display='contents';
+  const d=document.createElement('div');d.className='msg bot';
+  d.innerHTML=\`<div class="msg-row"><div class="mini-av">Fe</div><div class="bbl">\${fmt(text)}</div></div><div class="msg-time">\${now()}</div>\`;
+  wrap.appendChild(d);c.appendChild(wrap);
+  if(extras.qr?.length){
+    const row=document.createElement('div');row.className='qr-row';
+    extras.qr.forEach(q=>{const b=document.createElement('button');b.className='qr';b.textContent=q;b.onclick=()=>{row.remove();sendUser(q)};row.appendChild(b)});
+    c.appendChild(row);
+  }
+  if(extras.svc)c.appendChild(buildSvcList());
+  if(extras.lead&&!leadDone)c.appendChild(buildLeadCard());
+  if(extras.quote)c.appendChild(buildQuoteCard());
+  scrollBottom();
+}
+function addUser(text){
+  const c=$('msgs');const d=document.createElement('div');d.className='msg user';
+  d.innerHTML=\`<div class="msg-row"><div class="bbl">\${esc(text)}</div></div><div class="msg-time">\${now()}</div>\`;
+  c.appendChild(d);scrollBottom();
+}
+function showTyping(){
+  const c=$('msgs');const d=document.createElement('div');d.id='typing';d.className='msg bot';
+  d.innerHTML=\`<div class="typing-row"><div class="mini-av">Fe</div><div class="typing-bbl"><span></span><span></span><span></span></div></div>\`;
+  c.appendChild(d);scrollBottom();return d;
+}
+const SVCS=[
+  {ico:'fab fa-instagram',n:'SMO – Gestión RRSS',s:'Instagram, Facebook, LinkedIn'},
+  {ico:'fas fa-ad',n:'SMM – Campañas ADS',s:'Google Ads & Meta Ads'},
+  {ico:'fas fa-photo-video',n:'Contenido Orgánico',s:'Diseño, imagen y video'},
+  {ico:'fas fa-robot',n:'Automatizaciones N8N',s:'CRM, WhatsApp, email flows'},
+  {ico:'fas fa-search',n:'SEO & Desarrollo Web',s:'Posicionamiento y sitios web'},
+  {ico:'fas fa-film',n:'Producción Audiovisual',s:'Reels y videos corporativos'},
+];
+function buildSvcList(){
+  const wrap=document.createElement('div');wrap.className='svc-list';
+  SVCS.forEach(s=>{
+    const c=document.createElement('div');c.className='svc-item';
+    c.innerHTML=\`<div class="svc-ico"><i class="\${s.ico}"></i></div><div class="svc-txt"><strong>\${s.n}</strong><span>\${s.s}</span></div><i class="fas fa-chevron-right svc-arr"></i>\`;
+    c.onclick=()=>{wrap.remove();sendUser(\`Cuéntame más sobre \${s.n}\`)};
+    wrap.appendChild(c);
+  });
+  return wrap;
+}
+function buildLeadCard(){
+  const lc=document.createElement('div');lc.className='lead-card';lc.id='lcard';
+  lc.innerHTML=\`<h4><i class="fas fa-user-circle"></i>Déjanos tus datos</h4><input class="lc-inp" id="lname" placeholder="Tu nombre completo" type="text"/><input class="lc-inp" id="lemail" placeholder="Tu email de contacto" type="email"/><input class="lc-inp" id="lphone" placeholder="WhatsApp (opcional)" type="tel"/><button class="lc-btn" onclick="submitLead()"><i class="fas fa-paper-plane"></i> Enviar mis datos</button><span class="lc-skip" onclick="skipLead()">Continuar sin registrarme</span>\`;
+  return lc;
+}
+function buildQuoteCard(){
+  const qc=document.createElement('div');qc.className='quote-card';
+  qc.innerHTML=\`<h4>📋 Cotización Gratuita</h4><p>Cuéntanos tu proyecto y te enviamos propuesta en menos de 24 horas hábiles.</p><button class="quote-btn" onclick="openQuote()"><i class="fas fa-envelope"></i> Solicitar Cotización</button>\`;
+  return qc;
+}
+function submitLead(){
+  const name=$('lname')?.value.trim();const email=$('lemail')?.value.trim();const phone=$('lphone')?.value.trim();
+  if(!name||!email){alert('Por favor ingresa tu nombre y email.');return}
+  $('lcard')?.remove();leadDone=true;
+  addUser(\`Mi nombre es \${name}, email: \${email}\${phone?', WA: '+phone:''}\`);
+  history.push({role:'user',content:\`Usuario: \${name}, email: \${email}\${phone?', WA: '+phone:''}\`});
+  window.open(\`mailto:agenciafe.marketing@gmail.com?subject=Nuevo Lead: \${encodeURIComponent(name)}&body=\${encodeURIComponent(\`Lead desde chatbot:\\nNombre: \${name}\\nEmail: \${email}\\nTeléfono: \${phone||'—'}\`)}\`);
+  askAI(\`El usuario se llama \${name} y dejó su email \${email}. Agradécele y confirma que el equipo lo contactará pronto.\`);
+}
+function skipLead(){$('lcard')?.remove();leadDone=true;addBot('Sin problema 😊 Puedes preguntarme lo que necesites. Si en algún momento quieres que te contactemos, dímelo.')}
+function openQuote(){window.open('mailto:agenciafe.marketing@gmail.com?subject=Cotización desde Chatbot FE&body=Hola, me interesa cotizar sus servicios.')}
+async function sendMsg(){const inp=$('txt');const txt=inp.value.trim();if(!txt)return;inp.value='';sendUser(txt)}
+async function sendUser(txt){addUser(txt);history.push({role:'user',content:txt});await askAI(txt)}
+async function askAI(userTxt){
+  const typing=showTyping();
+  const lo=userTxt.toLowerCase();
+  const wS=/(servicio|ofrecen|hacen|tienen|ayuda|necesito|quiero|busco)/i.test(lo);
+  const wC=/(cotiz|precio|costo|valor|presupuesto|cuánto|cuanto|plan)/i.test(lo);
+  const wN=/(n8n|automatiz|bot|flujo|crm|whatsapp automat)/i.test(lo);
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:SYS,messages:history.slice(-14)})
+    });
+    const data=await res.json();typing.remove();
+    const reply=data.content?.find(b=>b.type==='text')?.text||'Lo siento, tuve un error. Escríbenos directamente a agenciafe.marketing@gmail.com 😊';
+    history.push({role:'assistant',content:reply});
+    const extras={};
+    if(wS)extras.svc=true;
+    if(wC&&!leadDone)extras.lead=true;
+    if(wC)extras.quote=true;
+    if(wN)extras.qr=['¿Cuánto cuesta N8N?','¿Qué flujos automatizo?','Quiero cotizar'];
+    else if(!wS&&!wC&&history.length<=4)extras.qr=['Ver servicios','Cotizar','¿Quiénes son?','N8N'];
+    addBot(reply,extras);
+  }catch(e){typing.remove();addBot('Error de conexión. Contáctanos directamente: **+56 9 9415 4510** 📞')}
+}
+function showQM(){
+  const opts=['Ver todos los servicios','Quiero una cotización','Automatizaciones N8N','Casos de éxito','Hablar con un humano','Datos de contacto'];
+  $('qm')?.remove();
+  const menu=document.createElement('div');menu.id='qm';
+  menu.style.cssText='position:fixed;bottom:76px;left:10px;right:10px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:4px;box-shadow:0 8px 30px rgba(0,0,0,.12);z-index:10;animation:slideUp .2s ease';
+  menu.innerHTML=\`<div style="font-size:9px;font-weight:800;color:#94a3b8;padding:0 5px 4px;letter-spacing:.8px;text-transform:uppercase">Acciones rápidas</div>\`;
+  opts.forEach(o=>{
+    const b=document.createElement('button');
+    b.style.cssText='background:none;border:none;text-align:left;padding:8px 10px;border-radius:8px;font-size:12px;font-weight:700;color:#1e293b;font-family:"Montserrat",sans-serif;cursor:pointer;display:flex;align-items:center;gap:8px';
+    b.innerHTML=\`<i class="fas fa-chevron-right" style="color:var(--pk);font-size:9px"></i>\${o}\`;
+    b.onmouseover=()=>b.style.background='rgba(241,148,180,.08)';
+    b.onmouseout=()=>b.style.background='none';
+    b.onclick=()=>{menu.remove();sendUser(o)};
+    menu.appendChild(b);
+  });
+  document.body.appendChild(menu);
+  setTimeout(()=>document.addEventListener('click',function h(ev){if(!menu.contains(ev.target)){menu.remove();document.removeEventListener('click',h)}},{once:false}),100);
+}
+window.onload=()=>{
+  setTimeout(()=>{
+    addBot('¡Hola! 👋 Soy **Fe**, la asistente de **FE Agencia Marketing Digital**.\\n\\nEstoy aquí para ayudarte a potenciar tu marca. ¿En qué puedo orientarte hoy?',
+      {qr:['Ver servicios','Quiero cotizar','¿Quiénes son?','N8N Automatizaciones']});
+  },500);
+};
+<\/script>
+</body>
+</html>`;
+
+let chatOpen=false,chatLoaded=false;
 function toggleChat(){
-  chatOpen = !chatOpen;
-  const win = document.getElementById('chat-win');
-  win.classList.toggle('open', chatOpen);
-  if(chatOpen && !iframeLoaded){
-    const iframe = document.getElementById('chat-iframe');
-    const blob = new Blob([CHATBOT_HTML], {type:'text/html'});
-    iframe.src = URL.createObjectURL(blob);
-    iframeLoaded = true;
+  chatOpen=!chatOpen;
+  document.getElementById('chat-win').classList.toggle('open',chatOpen);
+  if(chatOpen&&!chatLoaded){
+    const iframe=document.getElementById('chat-iframe');
+    fetch('chatbot.html').then(r=>r.text()).then(t=>{
+      const blob=new Blob([t],{type:'text/html'});
+      iframe.src=URL.createObjectURL(blob);
+      chatLoaded=true;
+    }).catch(err=>{console.error('Failed to load chatbot.html',err)});
   }
 }
 </script>

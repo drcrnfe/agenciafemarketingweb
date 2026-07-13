@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <link rel="stylesheet" href="Css/style.css"/>
+  <link rel="stylesheet" href="Css/style-modern.css"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
@@ -41,6 +42,7 @@
   </div>
 </nav>
 
+<main>
 <!-- ════════ HERO ════════ -->
 <section id="hero">
   <div class="hero-bg-grid"></div>
@@ -48,7 +50,7 @@
   <div class="hero-orb2"></div>
   <div class="hero-orb3"></div>
   <div class="hero-inner">
-    <div>
+    <div class="hero-copy">
       <div class="hero-badge">Marketing Digital &amp; Comunicaciones</div>
       <h1 class="hero-title">
         Elevamos tu marca con
@@ -58,7 +60,7 @@
       <p class="hero-desc">Transformamos ideas en resultados digitales. Creatividad y datos al servicio de tu negocio, con más de 15 años de experiencia en TV, publicidad y marketing.</p>
       <div class="hero-btns">
         <button class="btn-pk" onclick="scrollTo('cotizar')"><i class="fas fa-paper-plane"></i> Cotización Gratuita</button>
-        <a href="#services" style="color:rgba(255,255,255,.65);font-size:13px;font-weight:700;display:inline-flex;align-items:center;gap:7px;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.25);transition:.2s" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.65)'">Ver servicios <i class="fas fa-arrow-down" style="font-size:11px"></i></a>
+        <a class="hero-link" href="#services">Ver servicios <i class="fas fa-arrow-down"></i></a>
       </div>
       <div class="hero-stats">
         <div><div class="stat-n">15+</div><div class="stat-l">Años de Exp.</div></div>
@@ -130,9 +132,9 @@
     <div class="svc-header">
       <div>
         <div class="section-pill">Nuestros Servicios</div>
-        <h2 class="section-title" style="margin-bottom:0">Soluciones <span style="color:var(--pk)">Integrales</span></h2>
+        <h2 class="section-title section-title--tight">Soluciones <span class="accent">Integrales</span></h2>
       </div>
-      <button class="btn-pk" onclick="scrollTo('cotizar')" style="white-space:nowrap">
+      <button class="btn-pk" onclick="scrollTo('cotizar')">
         <i class="fas fa-paper-plane"></i> Solicitar Cotización
       </button>
     </div>
@@ -428,6 +430,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ════════ FOOTER ════════ -->
 <footer>
